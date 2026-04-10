@@ -1204,34 +1204,6 @@ for module in LOGGING_IGNORE_MODULES:
 # config in env
 JWT_PRIVATE_KEY = os.environ.get('JWT_PRIVATE_KEY', '') or JWT_PRIVATE_KEY
 
-# For database conf., now Seafile only support MySQL, skip for other engine
-
-## use update methods to get user's cfg
-_tmp_db_cfg = copy.deepcopy(_preset_db_cfg)
-_tmp_db_cfg.update(DATABASES)
-DATABASES = _tmp_db_cfg
-
-if 'mysql' in DATABASES['default'].get('ENGINE', ''):
-
-    ## For dtable_db
-    _rewrite_db_env_key_map = {
-        'HOST': 'SEAFILE_DB_HOST',
-        'PORT': 'SEAFILE_DB_PORT',
-        'USER': 'SEAFILE_DB_USER',
-        'PASSWORD': 'SEAFILE_DB_PASSWORD',
-        'NAME': 'SEAFILE_SEAHUB_DB_NAME'
-    }
-
-    for db_key, env_key in _rewrite_db_env_key_map.items():
-        if env_value := os.environ.get(env_key):
-            DATABASES['default'][db_key] = env_value
-
-    if DATABASES['default'].get('PORT'):
-        try:
-            int(DATABASES['default']['PORT'])
-        except:
-            raise ValueError(f"Invalid database port: {DATABASES['default']['PORT']}")
-
 CACHE_PROVIDER = os.getenv('CACHE_PROVIDER', 'redis')
 
 ## use update methods to get user's cfg

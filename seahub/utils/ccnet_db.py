@@ -1,10 +1,6 @@
 # -*- coding: utf-8 -*-
 import os
-from django.db import connection, transaction
-
-
-def get_ccnet_db_name():
-    return os.environ.get('SEAFILE_CCNET_DB_NAME', '') or 'ccnet_db'
+from django.db import connections, transaction
 
 
 class CcnetGroup(object):
@@ -46,23 +42,54 @@ class CcnetUserRole(object):
 class CcnetDB:
 
     def __init__(self):
+        self.connection = connections["ccnet"]
+        self.db_type = "pgsql" if self.connection.vendor == "postgresql" else "mysql"
 
-        self.db_name = get_ccnet_db_name()
+    def table(self, name):
+        if self.connection.vendor == "postgresql":
+            return f"\"{name.lower()}\""
+        else:
+            return f"`{name}`"
+
+    def quote(self, name):
+        if self.connection.vendor == "postgresql":
+            return f"\"{name}\""
+        else:
+            return f"`{name}`"
+
+    def bool(self, val):
+        if self.connection.vendor == "postgresql":
+            if val:
+                return "true"
+            else:
+                return "false"
+        else:
+            if val:
+                return "1"
+            else:
+                return "0"
+
+    def concat(self, *args):
+        if self.connection.vendor == "postgresql":
+            return " || ".join(args)
+        else:
+            return f"CONCAT({', '.join(args)})"
 
     def list_org_departments(self, org_id):
         sql = f"""
         SELECT
             g.group_id, group_name, creator_name, timestamp, type, parent_group_id
         FROM
-            `{self.db_name}`.`OrgGroup` o
+            {self.table("OrgGroup")} o
         LEFT JOIN
-            `{self.db_name}`.`Group` g
+            {self.table("Group")} g
         ON o.group_id=g.group_id
         WHERE
           org_id=%s AND parent_group_id<>0;
         """
+
         groups = []
-        with connection.cursor() as cursor:
+        with self.connection.cursor() as cursor:
             cursor.execute(sql, [org_id])
             for item in cursor.fetchall():
                 group_id = item[0]
@@ -108,24 +135,23 @@ class CcnetDB:
             where_clause += " AND " + " AND ".join(conditions)
 
         count_sql = f"""
-            SELECT COUNT(1)
-            FROM `{self.db_name}`.`EmailUser` t1
-            LEFT JOIN `{self.db_name}`.`UserRole` t2 ON t1.email = t2.email
+            SELECT COUNT(*)
+            FROM {self.table("EmailUser")} t1
+            LEFT JOIN {self.table("UserRole")} t2 ON t1.email = t2.email
             {where_clause}
-            ORDER BY t1.id
         """
 
         sql = f"""
             SELECT t1.id, t1.email, t1.is_staff, t1.is_active, t1.ctime, t2.role, t1.passwd
-            FROM `{self.db_name}`.`EmailUser` t1
-            LEFT JOIN `{self.db_name}`.`UserRole` t2 ON t1.email = t2.email
+            FROM {self.table("EmailUser")} t1
+            LEFT JOIN {self.table("UserRole")} t2 ON t1.email = t2.email
             {where_clause}
             ORDER BY t1.id
             LIMIT %s OFFSET %s;
         """
 
         users = []
-        with connection.cursor() as cursor:
+        with self.connection.cursor() as cursor:
             cursor.execute(count_sql, params)
             total_count = int(cursor.fetchone()[0])
 
@@ -161,13 +187,13 @@ class CcnetDB:
 
         sql = f"""
         SELECT user_name, group_id
-        FROM `{self.db_name}`.`GroupUser`
+        FROM {self.table("GroupUser")}
         WHERE group_id IN ({placeholders})
         AND is_staff = 1
         """
 
         group_admins = {}
-        with connection.cursor() as cursor:
+        with self.connection.cursor() as cursor:
             cursor.execute(sql, tuple(group_ids))
             result = cursor.fetchall()
 
@@ -181,7 +207,7 @@ class CcnetDB:
 
     def change_groups_into_departments(self, group_id):
         sql = f"""
-        UPDATE `{self.db_name}`.`Group` g
+        UPDATE {self.table("Group")} g
         SET
             g.creator_name = 'system admin',
             g.parent_group_id = -1
@@ -189,11 +215,11 @@ class CcnetDB:
             g.group_id = %s
         """
         structure_sql = f"""
-        INSERT INTO `{self.db_name}`.`GroupStructure` (group_id, path)
+        INSERT INTO {self.table("GroupStructure")} (group_id, path)
         VALUES (%s, %s)
         """
 
-        with connection.cursor() as cursor:
+        with self.connection.cursor() as cursor:
             cursor.execute(sql, [group_id])
             cursor.execute(structure_sql, [group_id, group_id])
 
@@ -203,28 +229,30 @@ class CcnetDB:
 
         placeholders = ','.join(['%s'] * len(user_list))
         sql = f"""
-        SELECT `email`
-        FROM `{self.db_name}`.`EmailUser`
+        SELECT {self.quote("email")}
+        FROM {self.table("EmailUser")}
         WHERE email IN ({placeholders})
-        AND is_active = 1
+        AND is_active = {self.bool(True)}
         AND email NOT LIKE %s
         """
+
         params = list(user_list) + ['%@seafile_group']
 
         active_users = []
-        with connection.cursor() as cursor:
+        with self.connection.cursor() as cursor:
             cursor.execute(sql, params)
             active_users = [row[0] for row in cursor.fetchall()]
         return active_users
 
     def get_org_user_count(self, org_id):
         sql = f"""
-        SELECT COUNT(1)
-        FROM `{self.db_name}`.`OrgUser`
+        SELECT COUNT(*)
+        FROM {self.table("OrgUser")}
         WHERE org_id=%s
         """
+
         user_count = 0
-        with connection.cursor() as cursor:
+        with self.connection.cursor() as cursor:
             cursor.execute(sql, [org_id])
             user_count = cursor.fetchone()[0]
         return user_count
@@ -232,11 +260,12 @@ class CcnetDB:
     def get_user_role_from_db(self, email):
 
         sql = f"""
-        SELECT `role`, `is_manual_set`
-        FROM `{self.db_name}`.`UserRole`
+        SELECT {self.quote("role")}, {self.quote("is_manual_set")}
+        FROM {self.table("UserRole")}
         WHERE email = %s;
         """
-        with connection.cursor() as cursor:
+
+        with self.connection.cursor() as cursor:
             cursor.execute(sql, [email])
             row = cursor.fetchone()
             if not row:
@@ -255,10 +284,11 @@ class CcnetDB:
     def get_org_staffs(self, org_id):
         sql = f"""
         SELECT email 
-        FROM `{self.db_name}`.`OrgUser`
+        FROM {self.table("OrgUser")}
         WHERE org_id={org_id} AND is_staff=1
         """
-        with connection.cursor() as cursor:
+
+        with self.connection.cursor() as cursor:
             cursor.execute(sql)
             staffs = cursor.fetchall()
 
@@ -268,10 +298,11 @@ class CcnetDB:
     def get_all_sub_groups(self, group_id):
         sql = f"""
         SELECT group_id
-        FROM `{self.db_name}`.`GroupStructure`
+        FROM {self.table("GroupStructure")}
         WHERE FIND_IN_SET(%s, REPLACE(path, ' ', '')) > 0
         """
-        with connection.cursor() as cursor:
+
+        with self.connection.cursor() as cursor:
             cursor.execute(sql, [str(group_id)])
             sub_groups = cursor.fetchall()
         return [s[0] for s in sub_groups]
@@ -279,25 +310,25 @@ class CcnetDB:
     def move_department(self, department_id, target_department_id):
         get_current_path_sql = f"""
         SELECT path
-        FROM `{self.db_name}`.`GroupStructure`
+        FROM {self.table("GroupStructure")}
         WHERE group_id = %s
         """
 
         update_group_sql = f"""
-        UPDATE `{self.db_name}`.`Group`
+        UPDATE {self.table("Group")}
         SET parent_group_id = %s
         WHERE group_id = %s
         """
 
         update_structure_sql = f"""
-        UPDATE `{self.db_name}`.`GroupStructure`
-        SET path = CONCAT(%s, SUBSTRING(path, CHAR_LENGTH(%s) + 1))
+        UPDATE {self.table("GroupStructure")}
+        SET path = {self.concat('%s', 'SUBSTRING(path, CHAR_LENGTH(%s) + 1)')}
         WHERE path = %s
-            OR path LIKE CONCAT(%s, ', %%');
+            OR path LIKE {self.concat('%s', "', %%'")};
         """
 
         with transaction.atomic():
-            with connection.cursor() as cursor:
+            with self.connection.cursor() as cursor:
                 # Get target department's path
                 cursor.execute(get_current_path_sql, [target_department_id])
                 target_path_result = cursor.fetchone()
@@ -328,14 +359,15 @@ class CcnetDB:
     def get_group_members(self, group_id, start, limit):
         sql = f"""
         SELECT group_id, user_name, is_staff
-        FROM `{self.db_name}`.`GroupUser`
+        FROM {self.table("GroupUser")}
         WHERE group_id=%s ORDER BY id
         LIMIT %s OFFSET %s
         """
         
-        count_sql = f"SELECT COUNT(1) from `{self.db_name}`.`GroupUser` WHERE group_id=%s"
+        count_sql = f"SELECT COUNT(*) from {self.table("GroupUser")} WHERE group_id=%s"
+
         users = []
-        with connection.cursor() as cursor:
+        with self.connection.cursor() as cursor:
             cursor.execute(count_sql, [group_id])
             total_count = int(cursor.fetchone()[0])
             cursor.execute(sql, [group_id, limit, start])
@@ -356,13 +388,14 @@ class CcnetDB:
     
     def count_org_active_users(self, org_id):
         sql = f"""
-        SELECT COUNT(1)
-        FROM `{self.db_name}`.`OrgUser` ou
-        JOIN `{self.db_name}`.`EmailUser` eu ON ou.email = eu.email
-        WHERE ou.org_id = %s AND eu.is_active = 1 AND eu.email NOT LIKE %s
+        SELECT COUNT(*)
+        FROM {self.table("OrgUser")} ou
+        JOIN {self.table("EmailUser")} eu ON ou.email = eu.email
+        WHERE ou.org_id = %s AND eu.is_active = {self.bool(True)} AND eu.email NOT LIKE %s
         """
+
         user_count = 0
-        with connection.cursor() as cursor:
+        with self.connection.cursor() as cursor:
             cursor.execute(sql, [org_id, '%@seafile_group'])
             row = cursor.fetchone()
             user_count = int(row[0]) if row and row[0] is not None else 0

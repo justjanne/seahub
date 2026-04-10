@@ -10,7 +10,7 @@ from rest_framework.permissions import IsAdminUser
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from django.db import connection
+from django.db import connections
 from django.db.models import Q
 from django.core.cache import cache
 from django.utils.translation import gettext as _
@@ -30,7 +30,6 @@ from seahub.api2.models import TokenV2
 from seahub.organizations.models import OrgSettings
 from seahub.organizations.views import gen_org_url_prefix
 from seahub.utils.auth import can_user_update_password
-from seahub.utils.ccnet_db import get_ccnet_db_name
 import seahub.settings as settings
 from seahub.settings import SEND_EMAIL_ON_ADDING_SYSTEM_MEMBER, INIT_PASSWD, \
     SEND_EMAIL_ON_RESETTING_USER_PASSWD
@@ -91,14 +90,20 @@ class UserObj(object):
         self.role = role
 
 
-def get_user_objs_from_ccnet(email_list):
-    db_name = get_ccnet_db_name()
+connection = connections["ccnet"]
 
+def table(name):
+    if connection.vendor == "postgresql":
+        return f"\"{name}\""
+    else:
+        return f"`{name}`"
+
+def get_user_objs_from_ccnet(email_list):
     if not email_list:
         return list(), None
 
-    sql = """SELECT e.email, is_staff, is_active, ctime, role FROM `%s`.`EmailUser` e
-             LEFT JOIN `%s`.`UserRole` r ON e.email=r.email WHERE e.email IN %%s""" % (db_name, db_name)
+    sql = f"""SELECT e.email, is_staff, is_active, ctime, role FROM {table("EmailUser")} e
+             LEFT JOIN {table("UserRole")} r ON e.email=r.email WHERE e.email IN %%s"""
     try:
         with connection.cursor() as cursor:
             cursor.execute(sql, (email_list,))

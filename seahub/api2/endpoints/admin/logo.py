@@ -47,12 +47,10 @@ class AdminLogo(APIView):
             error_msg = file_size_error_msg(logo_file.size, 20*1024*1024)
             return api_error(status.HTTP_400_BAD_REQUEST, error_msg)
 
-        if not os.path.exists(SEAHUB_DATA_ROOT):
-            os.makedirs(SEAHUB_DATA_ROOT)
+        os.makedirs(SEAHUB_DATA_ROOT, exist_ok=True)
 
         custom_dir = os.path.join(SEAHUB_DATA_ROOT, os.path.dirname(CUSTOM_LOGO_PATH))
-        if not os.path.exists(custom_dir):
-            os.makedirs(custom_dir)
+        os.makedirs(custom_dir, exist_ok=True)
 
         try:
             # save logo file to custom dir

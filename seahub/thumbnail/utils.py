@@ -103,8 +103,7 @@ def generate_thumbnail(request, repo_id, size, path):
         return (False, 400)
 
     thumbnail_dir = os.path.join(THUMBNAIL_ROOT, str(size))
-    if not os.path.exists(thumbnail_dir):
-        os.makedirs(thumbnail_dir)
+    os.makedirs(thumbnail_dir, exist_ok=True)
 
     filetype, fileext = get_file_type_and_ext(os.path.basename(path))
 

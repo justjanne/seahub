@@ -1686,8 +1686,7 @@ class ImportConfluenceView(APIView):
             return api_error(status.HTTP_404_NOT_FOUND, 'Wiki not found')
         extract_dir = '/tmp/wiki'
         space_dir = os.path.join(extract_dir, space_key)
-        if not os.path.exists(space_dir):
-            os.makedirs(space_dir)
+        os.makedirs(space_dir, exist_ok=True)
         try:
             tmp_zip_file = os.path.join(space_dir, filename)
             with open(tmp_zip_file, 'wb') as f:
@@ -1784,8 +1783,7 @@ class Wiki2ImportPageView(APIView):
             return api_error(443, _("Out of quota."))
 
         tmp_wiki_path = '/tmp/wiki/page'
-        if not os.path.exists(tmp_wiki_path):
-            os.makedirs(tmp_wiki_path)
+        os.makedirs(tmp_wiki_path, exist_ok=True)
 
         local_file_path = os.path.join(tmp_wiki_path, filename)
         with open(local_file_path, 'wb') as f:

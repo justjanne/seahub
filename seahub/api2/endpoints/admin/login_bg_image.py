@@ -38,8 +38,7 @@ class AdminLoginBgImage(APIView):
             error_msg = 'Image can not be found.'
             return api_error(status.HTTP_400_BAD_REQUEST, error_msg)
 
-        if not os.path.exists(SEAHUB_DATA_ROOT):
-            os.makedirs(SEAHUB_DATA_ROOT)
+        os.makedirs(SEAHUB_DATA_ROOT, exist_ok=True)
 
         file_type, ext = get_file_type_and_ext(image_file.name)
         if file_type != IMAGE:
@@ -53,8 +52,7 @@ class AdminLoginBgImage(APIView):
         custom_login_bg_image_path = get_custom_login_bg_image_path()
         custom_dir = os.path.join(SEAHUB_DATA_ROOT,
                 os.path.dirname(custom_login_bg_image_path))
-        if not os.path.exists(custom_dir):
-            os.makedirs(custom_dir)
+        os.makedirs(custom_dir, exist_ok=True)
 
         try:
             custom_login_bg_image_file = os.path.join(SEAHUB_DATA_ROOT,

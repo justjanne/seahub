@@ -135,33 +135,33 @@ class DBUpdater(object):
 
     @staticmethod
     def get_ccnet_mysql_info(version):
-        host = os.environ.get('SEAFILE_MYSQL_DB_HOST', 'db')
-        port = int(os.environ.get('SEAFILE_MYSQL_DB_PORT', 3306))
-        username = os.environ.get('SEAFILE_MYSQL_DB_USER', 'seafile')
-        password = os.environ.get('SEAFILE_MYSQL_DB_PASSWORD')
-        db = os.environ.get('SEAFILE_MYSQL_DB_CCNET_DB_NAME', 'ccnet_db')
+        host = os.environ.get('SEAFILE_DB_HOST', 'db')
+        port = int(os.environ.get('SEAFILE_DB_PORT', 3306))
+        username = os.environ.get('SEAFILE_DB_USER', 'seafile')
+        password = os.environ.get('SEAFILE_DB_PASSWORD')
+        db = os.environ.get('SEAFILE_CCNET_DB_NAME', 'ccnet_db')
     
         info = MySQLDBInfo(host, int(port), username, password, db)
         return info
 
     @staticmethod
     def get_seafile_mysql_info(version):
-        host = os.environ.get('SEAFILE_MYSQL_DB_HOST', 'db')
-        port = int(os.environ.get('SEAFILE_MYSQL_DB_PORT', 3306))
-        username = os.environ.get('SEAFILE_MYSQL_DB_USER', 'seafile')
-        password = os.environ.get('SEAFILE_MYSQL_DB_PASSWORD')
-        db = os.environ.get('SEAFILE_MYSQL_DB_SEAFILE_DB_NAME', 'seafile_db')
+        host = os.environ.get('SEAFILE_DB_HOST', 'db')
+        port = int(os.environ.get('SEAFILE_DB_PORT', 3306))
+        username = os.environ.get('SEAFILE_DB_USER', 'seafile')
+        password = os.environ.get('SEAFILE_DB_PASSWORD')
+        db = os.environ.get('SEAFILE_SEAFILE_DB_NAME', 'seafile_db')
 
         info = MySQLDBInfo(host, int(port), username, password, db)
         return info
 
     @staticmethod
     def get_seahub_mysql_info():
-        host = os.environ.get('SEAFILE_MYSQL_DB_HOST', 'db')
-        port = int(os.environ.get('SEAFILE_MYSQL_DB_PORT', 3306))
-        username = os.environ.get('SEAFILE_MYSQL_DB_USER', 'seafile')
-        password = os.environ.get('SEAFILE_MYSQL_DB_PASSWORD')
-        db = os.environ.get('SEAFILE_MYSQL_DB_SEAHUB_DB_NAME', 'seahub_db')
+        host = os.environ.get('SEAFILE_DB_HOST', 'db')
+        port = int(os.environ.get('SEAFILE_DB_PORT', 3306))
+        username = os.environ.get('SEAFILE_DB_USER', 'seafile')
+        password = os.environ.get('SEAFILE_DB_PASSWORD')
+        db = os.environ.get('SEAFILE_SEAHUB_DB_NAME', 'seahub_db')
 
         info = MySQLDBInfo(host, int(port), username, password, db)
         return info

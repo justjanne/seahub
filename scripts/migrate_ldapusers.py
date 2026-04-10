@@ -33,11 +33,11 @@ def migrate_ldapusers():
     print('Start migrate LDAPUsers')
 
     try:
-        db_user = os.environ.get('SEAFILE_MYSQL_DB_USER', 'seafile')
-        db_host = os.environ.get('SEAFILE_MYSQL_DB_HOST', 'db')
-        db_port = int(os.environ.get('SEAFILE_MYSQL_DB_PORT', 3306))
-        db_password = os.environ.get('SEAFILE_MYSQL_DB_PASSWORD')
-        db_name = os.environ.get('SEAFILE_MYSQL_DB_CCNET_DB_NAME', 'ccnet_db')
+        db_user = os.environ.get('SEAFILE_DB_USER', 'seafile')
+        db_host = os.environ.get('SEAFILE_DB_HOST', 'db')
+        db_port = int(os.environ.get('SEAFILE_DB_PORT', 3306))
+        db_password = os.environ.get('SEAFILE_DB_PASSWORD')
+        db_name = os.environ.get('SEAFILE_CCNET_DB_NAME', 'ccnet_db')
     except Exception as e:
         print('Failed to init ccnet db: %s' % e)
         return

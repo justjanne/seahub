@@ -1215,11 +1215,11 @@ if 'mysql' in DATABASES['default'].get('ENGINE', ''):
 
     ## For dtable_db
     _rewrite_db_env_key_map = {
-        'HOST': 'SEAFILE_MYSQL_DB_HOST',
-        'PORT': 'SEAFILE_MYSQL_DB_PORT',
-        'USER': 'SEAFILE_MYSQL_DB_USER',
-        'PASSWORD': 'SEAFILE_MYSQL_DB_PASSWORD',
-        'NAME': 'SEAFILE_MYSQL_DB_SEAHUB_DB_NAME'
+        'HOST': 'SEAFILE_DB_HOST',
+        'PORT': 'SEAFILE_DB_PORT',
+        'USER': 'SEAFILE_DB_USER',
+        'PASSWORD': 'SEAFILE_DB_PASSWORD',
+        'NAME': 'SEAFILE_SEAHUB_DB_NAME'
     }
 
     for db_key, env_key in _rewrite_db_env_key_map.items():

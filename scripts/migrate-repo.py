@@ -31,11 +31,11 @@ def main(argv):
         migrate_repo(repo_id, orig_storage_id, dest_storage_id)
 
 def parse_seafile_config(storage_id):
-    host = os.environ.get('SEAFILE_MYSQL_DB_HOST', 'db')
-    port = os.environ.get('SEAFILE_MYSQL_DB_PORT', '3306')
-    user = os.environ.get('SEAFILE_MYSQL_DB_USER', 'seafile')
-    passwd = os.environ.get('SEAFILE_MYSQL_DB_PASSWORD')
-    db_name = os.environ.get('SEAFILE_MYSQL_DB_SEAFILE_DB_NAME', 'seafile_db')
+    host = os.environ.get('SEAFILE_DB_HOST', 'db')
+    port = os.environ.get('SEAFILE_DB_PORT', '3306')
+    user = os.environ.get('SEAFILE_DB_USER', 'seafile')
+    passwd = os.environ.get('SEAFILE_DB_PASSWORD')
+    db_name = os.environ.get('SEAFILE_SEAFILE_DB_NAME', 'seafile_db')
     env = os.environ
     seafile_conf = os.path.join(env['SEAFILE_CENTRAL_CONF_DIR'], 'seafile.conf')
     cp = configparser.ConfigParser()

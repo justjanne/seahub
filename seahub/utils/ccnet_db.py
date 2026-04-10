@@ -4,7 +4,7 @@ from django.db import connection, transaction
 
 
 def get_ccnet_db_name():
-    return os.environ.get('SEAFILE_MYSQL_DB_CCNET_DB_NAME', '') or 'ccnet_db'
+    return os.environ.get('SEAFILE_CCNET_DB_NAME', '') or 'ccnet_db'
 
 
 class CcnetGroup(object):

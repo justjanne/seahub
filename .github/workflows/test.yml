@@ -41,7 +41,7 @@ jobs:
         run: |
           git clone --depth=1 --branch=master https://github.com/haiwen/seafile-test-deploy /tmp/seafile-test-deploy
           cd /tmp/seafile-test-deploy && git fetch origin master:master && git checkout master
-          export JWT_PRIVATE_KEY=qwertyuiop SITE_ROOT=/ SEAFILE_MYSQL_DB_CCNET_DB_NAME=ccnet SEAFILE_MYSQL_DB_SEAFILE_DB_NAME=seafile SEAFILE_MYSQL_DB_SEAHUB_DB_NAME=seahub
+          export JWT_PRIVATE_KEY=qwertyuiop SITE_ROOT=/ SEAFILE_CCNET_DB_NAME=ccnet SEAFILE_SEAFILE_DB_NAME=seafile SEAFILE_SEAHUB_DB_NAME=seahub
           ./bootstrap.sh
 
       - name: pip install
@@ -59,9 +59,9 @@ jobs:
           cd $GITHUB_WORKSPACE
           rm -r tests/seahub/repo_metadata
           export TRAVIS=1
-          export SEAFILE_MYSQL_DB_CCNET_DB_NAME=ccnet
-          export SEAFILE_MYSQL_DB_SEAFILE_DB_NAME=seafile
-          export SEAFILE_MYSQL_DB_SEAHUB_DB_NAME=seahub
+          export SEAFILE_CCNET_DB_NAME=ccnet
+          export SEAFILE_SEAFILE_DB_NAME=seafile
+          export SEAFILE_SEAHUB_DB_NAME=seahub
           export SEAFILE_DATA_DIR=/tmp/seafile-data
           export SEAFILE_CENTRAL_CONF_DIR=/tmp/conf
 

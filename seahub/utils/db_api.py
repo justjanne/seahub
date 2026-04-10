@@ -35,7 +35,7 @@ class SeafileDB:
 
     def _get_seafile_db_name(self):
 
-        if env_seafile_db_name := os.environ.get('SEAFILE_MYSQL_DB_SEAFILE_DB_NAME', ''):
+        if env_seafile_db_name := os.environ.get('SEAFILE_SEAFILE_DB_NAME', ''):
             return env_seafile_db_name
 
         conf_dir = os.environ.get('SEAFILE_CENTRAL_CONF_DIR') or \

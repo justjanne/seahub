@@ -15,6 +15,8 @@ DEBUG = False
 
 SERVICE_URL = 'http://127.0.0.1:8000'
 FILE_SERVER_ROOT = 'http://127.0.0.1:' + FILE_SERVER_PORT
+INNER_FILE_SERVER_ROOT = 'http://127.0.0.1:' + FILE_SERVER_PORT
+SEAFEVENTS_SERVER_URL = 'http://127.0.0.1:8889'
 
 CLOUD_MODE = False
 
@@ -1303,8 +1305,6 @@ if SEAFILE_SERVER_PROTOCOL and SEAFILE_SERVER_HOSTNAME:
 sys.path.pop(0)
 
 # Following settings are private, can not be overwrite.
-INNER_FILE_SERVER_ROOT = 'http://127.0.0.1:' + FILE_SERVER_PORT
-
 if os.environ.get('ENABLE_SEAFILE_AI'):
     ENABLE_SEAFILE_AI = os.environ.get('ENABLE_SEAFILE_AI', 'false').lower() == 'true'
 SEAFILE_AI_SECRET_KEY = os.environ.get('SEAFILE_AI_SECRET_KEY', '') or SEAFILE_AI_SECRET_KEY
@@ -1314,8 +1314,6 @@ if os.environ.get('ENABLE_FACE_RECOGNITION'):
     ENABLE_FACE_RECOGNITION = os.environ.get('ENABLE_FACE_RECOGNITION', 'false').lower() == 'true'
 
 ENABLE_FACE_RECOGNITION = ENABLE_METADATA_MANAGEMENT and ENABLE_SEAFILE_AI and ENABLE_FACE_RECOGNITION
-
-SEAFEVENTS_SERVER_URL = 'http://127.0.0.1:8889'
 
 IS_PRO_VERSION = os.environ.get('IS_PRO_VERSION', 'false').lower() == 'true'
 

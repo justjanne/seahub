@@ -14,7 +14,7 @@ from django.utils.translation import gettext as _
 
 from seahub.base.accounts import User
 
-RE_VALID_USERNAME = re.compile('[\w.@+-]+$')
+RE_VALID_USERNAME = re.compile('[\\w.@+-]+$')
 
 EMAIL_RE = re.compile(
     r"(^[-!#$%&'*+/=?^_`{}|~0-9A-Z]+(\.[-!#$%&'*+/=?^_`{}|~0-9A-Z]+)*"  # dot-atom

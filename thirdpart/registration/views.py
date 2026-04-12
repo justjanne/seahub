@@ -60,7 +60,7 @@ def activate(request, backend,
         A custom template to use. This is optional; if not specified,
         this will default to ``registration/activate.html``.
 
-    ``\*\*kwargs``
+    ``**kwargs``
         Any keyword arguments captured from the URL, such as an
         activation key, which will be passed to the backend's
         ``activate()`` method.

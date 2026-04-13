@@ -37,7 +37,8 @@ from seahub.settings import MEDIA_URL, LOGO_PATH, \
         MEDIA_ROOT, CUSTOM_LOGO_PATH
 from seahub.constants import PERMISSION_READ_WRITE
 from seahub.utils.db_api import SeafileDB
-from seahub.onlyoffice.settings import ENABLE_ONLYOFFICE, ONLYOFFICE_FILE_EXTENSION
+from seahub.onlyoffice.settings import ENABLE_ONLYOFFICE, ONLYOFFICE_FILE_EXTENSION, ONLYOFFICE_ROOT, \
+    INNER_ONLYOFFICE_ROOT
 
 try:
     from seahub.settings import EVENTS_CONFIG_FILE
@@ -483,6 +484,9 @@ def gen_inner_file_get_url(token, filename):
 def gen_inner_file_upload_url(op, token):
     
     return '%s/%s/%s' % (get_inner_fileserver_root(), op, token)
+
+def gen_inner_onlyoffice_callback_url():
+    return '%s%s' % (get_inner_service_url(), reverse('onlyoffice_editor_callback'))
     
 
 def get_max_upload_file_size():
@@ -909,6 +913,21 @@ def get_service_url():
     """Get service url from seaserv.
     """
     return seahub.settings.SERVICE_URL
+
+def get_inner_service_url():
+    return seahub.settings.INNER_SERVICE_URL
+
+def get_onlyoffice_root():
+    return ONLYOFFICE_ROOT
+
+def get_inner_onlyoffice_root():
+    return INNER_ONLYOFFICE_ROOT
+
+def get_inner_onlyoffice_url(url: str):
+    if ONLYOFFICE_ROOT != INNER_ONLYOFFICE_ROOT:
+        if url.startswith(ONLYOFFICE_ROOT):
+            return INNER_ONLYOFFICE_ROOT + url.removeprefix(ONLYOFFICE_ROOT)
+    return url
 
 def get_webdav_url():
     """Get webdav url.

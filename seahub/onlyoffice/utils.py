@@ -11,8 +11,8 @@ from seaserv import seafile_api
 
 from seahub.base.templatetags.seahub_tags import email2nickname
 from seahub.avatar.templatetags.avatar_tags import api_avatar_url
-from seahub.utils import get_file_type_and_ext, gen_file_get_url, \
-        get_site_scheme_and_netloc
+from seahub.utils import get_file_type_and_ext, gen_inner_file_get_url, \
+    gen_inner_onlyoffice_callback_url, get_service_url
 
 from seahub.onlyoffice.models import OnlyOfficeDocKey
 
@@ -146,11 +146,9 @@ def get_onlyoffice_dict(request, username, repo_id, file_path, file_id='',
 
     # for render onlyoffice html
     file_name = os.path.basename(file_path.rstrip('/'))
-    doc_url = gen_file_get_url(dl_token, file_name)
-
-    base_url = get_site_scheme_and_netloc()
-    onlyoffice_editor_callback_url = reverse('onlyoffice_editor_callback')
-    callback_url = urllib.parse.urljoin(base_url, onlyoffice_editor_callback_url)
+    doc_url = gen_inner_file_get_url(dl_token, file_name)
+    base_url = get_service_url()
+    callback_url = gen_inner_onlyoffice_callback_url()
     avatar_url, _, _ = api_avatar_url(username)
     import jwt
 

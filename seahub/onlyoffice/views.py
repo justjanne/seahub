@@ -36,7 +36,8 @@ from seahub.onlyoffice.converter_utils import get_file_name_without_ext, \
 from seahub.onlyoffice.converter import get_converter_uri
 from seahub.utils import gen_inner_file_upload_url, is_pro_version, \
     normalize_file_path, check_filename_with_rename, get_site_scheme_and_netloc, \
-    gen_inner_file_get_url, get_file_type_and_ext, gen_file_get_url
+    gen_inner_file_get_url, get_file_type_and_ext, gen_file_get_url, \
+    get_inner_onlyoffice_url
 from seahub.utils.file_op import if_locked_by_online_office
 from seahub.views import check_folder_permission
 
@@ -156,7 +157,7 @@ def onlyoffice_editor_callback(request):
 
         # Defines the link to the edited document to be saved with the document storage service.
         # The link is present when the status value is equal to 2 or 3 only.
-        url = post_data.get('url')
+        url = get_inner_onlyoffice_url(post_data.get('url'))
         onlyoffice_resp = requests.get(url, verify=VERIFY_ONLYOFFICE_CERTIFICATE)
         if not onlyoffice_resp:
             logger.error('[OnlyOffice] No response from file content url.')

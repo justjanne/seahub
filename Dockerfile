@@ -55,4 +55,4 @@ VOLUME /data
 VOLUME /tmp
 
 WORKDIR /source/seahub/
-ENTRYPOINT ["python3", "manage.py", "runserver", "0.0.0.0:8000"]
+ENTRYPOINT ["gunicorn", "seahub.wsgi:application", "--bind", "0.0.0.0:8000"]

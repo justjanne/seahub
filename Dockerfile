@@ -1,4 +1,11 @@
-FROM ubuntu:24.04 AS builder
+FROM node AS builder
+
+COPY . /source/seahub/
+WORKDIR /source/seahub/frontend
+RUN npm ci
+RUN npm run build
+
+FROM ubuntu:24.04
 
 RUN apt-get update \
  && apt-get install -y --no-install-recommends \
@@ -30,13 +37,22 @@ COPY . /source/seahub/
 WORKDIR /source/seahub
 RUN uv pip install -r pyproject.toml --system --break-system-packages
 
-VOLUME /config
-VOLUME /data
-VOLUME /tmp
+COPY --from=builder /source/seahub/frontend/build /source/seahub/frontend/build
+COPY --from=builder /source/seahub/frontend/webpack-stats.pro.json /source/seahub/frontend/webpack-stats.pro.json
 
+ENV SEAFILE_CONF_DIR=/config
+ENV SEAFILE_CENTRAL_CONF_DIR=/config
 ENV SEAHUB_LOG_DIR=/tmp
 ENV SEAHUB_DIR=/source/seahub
 ENV PYTHONPATH=/usr/local/lib/python3.12/dist-packages/:/usr/local/lib/python3.12/site-packages/:/source/:/source/seafobj/:/source/seafevents:/source/seahub/thirdpart
+
+#RUN django-admin compilemessages
+RUN python3 manage.py compilejsi18n
+RUN python3 manage.py collectstatic --noinput -i admin -i termsandconditions
+
+VOLUME /config
+VOLUME /data
+VOLUME /tmp
 
 WORKDIR /source/seahub/
 ENTRYPOINT ["python3", "manage.py", "runserver", "0.0.0.0:8000"]

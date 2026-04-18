@@ -3,3 +3,6 @@
 /.github
 /.venv
 __pycache__
+node_modules
+/frontend/build
+/frontend/webpack-stats.pro.json

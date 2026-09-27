@@ -1,0 +1,30 @@
+/* user profile */
+#user-profile {
+  width: 290px;
+  border: 1px solid var(--bs-border-secondary-color);
+  border-radius: 5px;
+  margin: 50px auto 0;
+}
+
+#user-profile .avatar {
+  display: block;
+  border-radius: 1000px;
+  margin: 8px auto;
+}
+
+.user-profile-nickname {
+  padding: 0 15px 8px;
+  margin: 0;
+  font-size: 18px;
+  text-align: center;
+}
+
+.user-profile-info {
+  padding: 8px 15px;
+  border-top: 1px solid #eee;
+}
+
+.user-profile-info-icon {
+  display: inline-block;
+  width: 1.4em;
+}

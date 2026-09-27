@@ -278,7 +278,7 @@
 
 .sdoc-file-history-versions .history-list-item.item-active .history-info .name,
 .sdoc-file-history-versions .history-list-item.item-active .history-info .time {
-  color: #ed7109;
+  color: var(--bs-accent-color);
 }
 
 .history-info .owner {

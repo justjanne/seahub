@@ -110,7 +110,7 @@
 }
 
 .sf-metadata-tags-editor-container .sf-metadata-ui-tags-container .sf-metadata-ui-tag.sf-metadata-ui-tag-selected {
-  border-color: rgb(255, 152, 0);
+  border-color: var(--bs-primary);
 }
 
 .sf-metadata-tags-editor-container .sf-metadata-ui-tags-container .sf-metadata-ui-tag-color {

@@ -15,7 +15,7 @@
 
 .wiki-page-container .article .ml-2:hover {
   text-decoration: underline;
-  color: #ED7109;
+  color: var(--bs-accent-color);
 }
 
 #wiki-page-last-modified {

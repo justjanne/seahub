@@ -1,0 +1,50 @@
+/* sf-nav-link */
+.nav .nav-item {
+  padding: 0;
+}
+
+.nav .nav-item .nav-link {
+  padding: 0.5rem 0;
+  margin-right: 30px;
+  color: var(--bs-body-color);
+  font-weight: normal;
+  transition: none;
+  border-bottom: 0.125rem solid transparent;
+}
+
+.cur-view-path .nav .nav-item .nav-link {
+  padding: 11px 0;
+}
+
+.nav .nav-item .nav-link.active {
+  color: $accent-color;
+  text-decoration: none;
+  border-bottom-color: $accent-color;
+  z-index: 1;
+}
+
+.nav-pills .nav-item .nav-link {
+  padding: 0.25rem;
+  color: var(--bs-body-color);
+  font-size: 15px;
+}
+
+.nav-pills .nav-item .nav-link:hover {
+  background-color: var(--bs-nav-hover-color);
+}
+
+.nav-pills .nav-item .nav-link.active {
+  background-color: $primary;
+  color: var(--bs-highlight-color);
+  border-bottom: 0.125rem solid transparent;
+}
+
+.cur-view-path.tab-nav-container {
+  padding: 0 16px;
+}
+
+.cur-view-path.tab-nav-container .nav .nav-item .nav-link {
+  justify-content: center;
+  /* make short word like 'All' in the center */
+  margin: 0 0.75rem;
+}

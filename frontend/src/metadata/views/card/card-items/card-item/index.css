@@ -14,7 +14,7 @@
 }
 
 .sf-metadata-card-item.selected {
-  border-color: #ff9800;
+  border-color: var(--bs-primary);
 }
 
 .sf-metadata-card-item:hover {
@@ -170,7 +170,7 @@
 }
 
 [data-bs-theme="dark"] .sf-metadata-card-item.selected {
-  border-color: #ff9800;
+  border-color: var(--bs-primary);
 }
 
 [data-bs-theme="dark"] .sf-metadata-card-item:hover {

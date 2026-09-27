@@ -151,5 +151,5 @@
 }
 
 .file-chooser-list-view-header .name {
-  color: #ED7109;
+  color: var(--bs-accent-color);
 }

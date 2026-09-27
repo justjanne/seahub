@@ -1,0 +1,31 @@
+/* two-factor-auth */
+.tfa-panel {
+  background: $white;
+  border-radius: 3px;
+  box-shadow: 0 0 10px rgba(0,0,0, 0.1);
+  padding: 30px 25px 40px;
+  width: 336px;
+  margin: 5rem auto;
+}
+
+.tfa-panel .hd {
+  font-size: 1rem;
+  text-align: center;
+}
+
+.tfa-panel .con {
+  font-size: .875rem;
+  color: $secondary;
+}
+
+.tfa-panel .qr-code-image {
+  margin: 6px 0 20px;
+}
+
+.two-factor-auth-wizard-btns {
+  margin-top: 1.25rem;
+}
+
+.two-factor-auth-backup-token-list {
+  margin-bottom: 1rem;
+}

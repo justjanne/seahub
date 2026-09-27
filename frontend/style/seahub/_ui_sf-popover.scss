@@ -1,0 +1,46 @@
+/**** sf-popover ****/
+/* e.g. top notice popup, group members popup */
+.sf-popover-container {
+  position: relative;
+}
+
+.sf-popover {
+  width: 240px;
+  background: $white;
+  border: 1px solid #c9c9c9;
+  border-radius: 3px;
+  box-shadow: 0 0 4px #ccc;
+  position: absolute;
+  z-index: 20;
+}
+
+.sf-popover-hd {
+  padding: 5px 0 3px;
+  border-bottom: 1px solid #dfdfe1;
+  margin: 0 10px;
+}
+
+.sf-popover-title {
+  text-align: center;
+}
+
+.sf-popover-close {
+  font-size: 16px;
+  color: #b9b9b9;
+  margin: 4px 0 0;
+}
+
+.sf-popover-con {
+  padding: 0 10px;
+  overflow: auto;
+}
+
+a.sf-popover-item {
+  display: block;
+  color: #444;
+  font-weight: normal;
+  line-height: 31px;
+  text-decoration: none;
+  padding: 0 10px;
+  margin: 5px -10px;
+}

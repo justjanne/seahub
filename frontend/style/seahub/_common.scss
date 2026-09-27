@@ -1,0 +1,126 @@
+/********** common class ***********/
+.fleft {
+  float: left;
+}
+
+.fright {
+  float: right;
+}
+
+.clear {
+  clear: both;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.fd-col {
+  flex-direction: column;
+}
+
+.flex-auto {
+  flex: auto;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+.show {
+  display: block;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.hide {
+  display: none;
+}
+
+.error {
+  color: red;
+}
+
+.errorlist {
+  color: red;
+  padding: 0;
+}
+
+.error-tip {
+  text-align: center;
+  margin-top: 5em;
+}
+
+.ovhd {
+  overflow: hidden;
+}
+
+.ov-auto {
+  overflow: auto;
+}
+
+.ov-vb {
+  overflow: visible;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.no-bold {
+  font-weight: normal;
+}
+
+.w100 {
+  width: 100%;
+}
+
+.h100 {
+  height: 100%;
+}
+
+.vh {
+  visibility: hidden;
+}
+
+.vam {
+  vertical-align: middle;
+}
+
+.hl {
+  background-color: #f8f8f8;
+}
+
+/* highlight */
+.tip {
+  color: $secondary;
+  font-size: 12px;
+}
+
+.tick-green {
+  color: green;
+}
+
+.label {
+  color: var(--bs-body-color);
+  font-size: 12px;
+  font-style: normal;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.alc {
+  text-align: center;
+}
+
+.cspt {
+  cursor: pointer;
+}
+
+.pos-rel {
+  position: relative;
+}

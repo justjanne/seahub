@@ -1,0 +1,133 @@
+/* base table style */
+table {
+    width: 100%;
+    table-layout: fixed;
+}
+
+table thead tr {
+    height: 2.1875rem;
+}
+
+table tbody tr {
+    height: 2.5625rem;
+}
+
+table th {
+    padding: 0.3125rem 0.1875rem;
+    border-bottom: 1px solid var(--bs-border-secondary-color);
+    text-align: left;
+    font-weight: normal;
+    font-size: 0.875rem;
+    line-height: 1.6;
+    color: var(--bs-body-secondary-color);
+}
+
+table td {
+    padding: 0.5rem 0.1875rem;
+    border-bottom: 1px solid var(--bs-border-secondary-color);
+    color: var(--bs-body-color);
+    font-size: 0.875rem;
+    word-break: break-all;
+}
+
+.table>:not(caption)>*>*,
+.text-wrap table>:not(caption)>*>* {
+    box-shadow: none;
+}
+
+.table-thead-hidden thead tr {
+    height: 0;
+    border: 0;
+}
+
+.table-thead-hidden thead th {
+    /* hide table th */
+    padding: 0;
+    border: 0;
+    font-size: 0;
+}
+
+.table-thead-hidden thead .sf3-font {
+    display: none !important;
+}
+
+.tr-highlight {
+    background-color: var(--bs-tr-hover-bg);
+}
+
+.tr-active {
+    background-color: var(--bs-tr-active-bg) !important;
+}
+
+/* table-item reanme-component */
+.rename-container input {
+    box-sizing: content-box;
+    padding: 2px 3px;
+    width: 20rem;
+    max-width: 100%;
+    height: 22px;
+    line-height: 19px;
+    border-radius: 2px;
+    word-wrap: break-word;
+    vertical-align: middle;
+    border: 1px solid #ccc;
+    background-color: var(--bs-body-bg);
+    color: var(--bs-body-color);
+}
+
+.rename-container input:focus {
+    background-color: var(--bs-body-bg);
+    border-color: $input-focus-border-color;
+    outline: 0;
+    box-shadow: $input-focus-box-shadow;
+}
+
+@media (max-width: 767px) {
+    .rename-container input {
+        width: 10rem;
+    }
+}
+
+/* table-item loading-more-data */
+.list-show-more {
+    padding: 0.25rem 0.75rem;
+    line-height: 2rem;
+    text-align: center;
+    color: $accent-color;
+    cursor: pointer;
+}
+
+.list-show-more:hover {
+    background-color: #eee;
+}
+
+.list-show-more .more-message {
+    font-size: 0.875rem;
+    color: $secondary;
+    text-decoration: underline;
+}
+
+/* table sort */
+a.table-sort-op {
+    color: inherit;
+}
+
+@media (max-width:767px) {
+    a.table-sort-op {
+        display: inline-block;
+        margin-left: 15px;
+    }
+}
+
+a.table-sort-op .sf3-font.sf3-font-sort3 {
+    font-size: 12px;
+}
+
+a.table-sort-op.sf3-font {
+    font-size: 13px;
+}
+
+a.table-sort-op:hover {
+    outline: none;
+    text-decoration: none;
+}

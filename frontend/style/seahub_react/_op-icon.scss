@@ -1,0 +1,79 @@
+/** op-icon **/
+.op-icon {
+  font-size: 1rem;
+  line-height: 1;
+  color: var(--bs-icon-color);
+  cursor: pointer;
+  display: inline-flex;
+  width: 24px;
+  height: 24px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 3px;
+  margin-right: 0.25rem;
+}
+
+.op-icon:focus,
+.op-icon:hover {
+  color: var(--bs-icon-color); /* to overwrite the styles for `a:hover` */
+  text-decoration: none;
+  background: var(--bs-hover-secondary-bg);
+}
+
+.op-icon-bg-light:focus,
+.op-icon-bg-light:hover {
+  background: var(--bs-hover-bg); /* for .op-icon shown in white containers */
+}
+
+.action-icon,
+.attr-action-icon {
+  margin-left: 0.5rem;
+  font-size: 1.25rem;
+  font-style: normal;
+  line-height: 1;
+  cursor: pointer;
+  vertical-align: middle;
+}
+
+
+.action-icon,
+.attr-action-icon {
+  color: $secondary !important;
+}
+
+.action-icon.sf3-font-copy1,
+.action-icon.sf3-font-delete1 {
+  width: 24px;
+  height: 24px;
+  border-radius: 2px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.action-icon.sf3-font-delete1:hover,
+.action-icon.sf3-font-copy1:hover {
+  background-color: var(--bs-hover-bg);
+}
+
+.action-icon:focus,
+.action-icon:hover,
+.attr-action-icon:focus,
+.attr-action-icon:hover {
+  color: var(--bs-body-color) !important;
+  text-decoration: none;
+}
+
+.attr-action-icon {
+  font-size: 0.875rem;
+}
+
+/* action-link */
+.action-link {
+  display: inline-block;
+  padding: 0.5rem 0;
+  text-decoration: underline;
+  color: $secondary;
+  cursor: pointer;
+  user-select: none;
+}

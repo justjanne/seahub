@@ -1,0 +1,45 @@
+
+.page-breadcrumb {
+  background: none;
+  font-size: 0.875rem;
+  margin: 1rem 0 0;
+  padding: 0;
+}
+
+@media (min-width: 768px) {
+  .page-breadcrumb {
+    margin: -0.5rem 0 0;
+  }
+}
+
+.page-breadcrumb .breadcrumb-item {
+  color: $text-muted;
+}
+
+.page-breadcrumb .breadcrumb-item.active {
+  color: $text-muted-dark;
+}
+
+.pagination-simple .page-item .page-link {
+  background: none;
+  border: none;
+}
+
+.pagination-simple .page-item.active .page-link {
+  color: $body-color;
+  font-weight: 700;
+}
+
+.pagination-pager .page-prev {
+  margin-right: auto;
+}
+
+.pagination-pager .page-next {
+  margin-left: auto;
+}
+
+.page-total-text {
+  align-self: center;
+  color: $text-muted-dark;
+  margin-right: 1rem;
+}

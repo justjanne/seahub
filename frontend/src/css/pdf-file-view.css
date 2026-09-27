@@ -321,7 +321,7 @@ input#pageNumber {
 }
 
 #thumbnailView .thumbnail.selected .thumbnailImage {
-  border: 2px solid #ff9800;
+  border: 2px solid var(--bs-primary);
 }
 
 #sidebarContent {

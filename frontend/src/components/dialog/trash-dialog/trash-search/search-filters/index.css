@@ -200,7 +200,7 @@
 
 .search-filters-container .search-filter-toggle.highlighted,
 .search-filter-toggle.highlighted .sf3-font-down {
-  color: #ed7109 !important;
+  color: var(--bs-accent-color) !important;
 }
 
 .search-filter-menu {

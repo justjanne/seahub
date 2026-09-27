@@ -4,6 +4,7 @@ COPY . /source/seahub/
 WORKDIR /source/seahub/frontend
 RUN npm ci
 RUN npm run build
+RUN npm run scss
 
 FROM ubuntu:24.04
 
@@ -39,8 +40,11 @@ COPY . /source/seahub/
 WORKDIR /source/seahub
 RUN uv pip install -r pyproject.toml --system --break-system-packages
 
-COPY --from=builder /source/seahub/frontend/build /source/seahub/frontend/build
+COPY --from=builder /source/seahub/frontend/build/frontend /source/seahub/frontend/build/frontend
 COPY --from=builder /source/seahub/frontend/webpack-stats.pro.json /source/seahub/frontend/webpack-stats.pro.json
+COPY --from=builder /source/seahub/frontend/build/style/seafile-ui.css /source/seahub/media/css/seafile-ui.css
+COPY --from=builder /source/seahub/frontend/build/style/seahub.css /source/seahub/media/css/seahub.css
+COPY --from=builder /source/seahub/frontend/build/style/seahub_react.css /source/seahub/media/css/seahub_react.css
 
 ENV SEAFILE_CONF_DIR=/config
 ENV SEAFILE_CENTRAL_CONF_DIR=/config

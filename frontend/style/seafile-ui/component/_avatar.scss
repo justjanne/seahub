@@ -1,0 +1,96 @@
+.avatar {
+  background: $gray-400 no-repeat 50%/cover;
+  border-radius: 50%;
+  color: $gray-600;
+  display: inline-block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  height: 2rem;
+  line-height: 2rem;
+  position: relative;
+  text-align: center;
+  user-select: none;
+  vertical-align: bottom;
+  width: 2rem;
+}
+
+.avatar i {
+  font-size: 125%;
+  vertical-align: sub;
+}
+
+.avatar-status {
+  background: $gray-600;
+  border: 2px solid $white;
+  border-radius: 50%;
+  bottom: -2px;
+  height: 0.75rem;
+  position: absolute;
+  right: -2px;
+  width: 0.75rem;
+}
+
+.avatar-sm {
+  font-size: 0.75rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  width: 1.5rem;
+}
+
+.avatar-md {
+  font-size: 1rem;
+  height: 2.5rem;
+  line-height: 2.5rem;
+  width: 2.5rem;
+}
+
+.avatar-lg {
+  font-size: 1.25rem;
+  height: 3rem;
+  line-height: 3rem;
+  width: 3rem;
+}
+
+.avatar-xl {
+  font-size: 1.75rem;
+  height: 4rem;
+  line-height: 4rem;
+  width: 4rem;
+}
+
+.avatar-xxl {
+  font-size: 2rem;
+  height: 5rem;
+  line-height: 5rem;
+  width: 5rem;
+}
+
+.avatar-placeholder {
+  background: $gray-400 url('data:image/svg+xml;charset=utf8,<svg xmlns="http://www.w3.org/2000/svg" width="134" height="134" viewBox="0 0 134 134"><path fill="#{$gray-600}%22%20d=%22M65.92%2066.34h2.16c14.802.42%2030.928%206.062%2029.283%2020.35l-1.618%2013.32c-.844%206.815-5.208%207.828-13.972%207.866H52.23c-8.764-.038-13.13-1.05-13.973-7.865l-1.62-13.32C34.994%2072.4%2051.12%2066.76%2065.92%2066.34zM49.432%2043.934c0-9.82%207.99-17.81%2017.807-17.81%209.82%200%2017.81%207.99%2017.81%2017.81%200%209.82-7.99%2017.807-17.81%2017.807-9.82%200-17.808-7.987-17.808-17.806z%22/%3E%3C/svg%3E') no-repeat 50%/80%;
+}
+
+.avatar-list {
+  font-size: 0;
+  margin: 0 0 -0.5rem;
+  padding: 0;
+}
+
+.avatar-list .avatar {
+  margin-bottom: 0.5rem;
+}
+
+.avatar-list .avatar:not(:last-child) {
+  margin-right: 0.5rem;
+}
+
+.avatar-list-stacked .avatar {
+  box-shadow: 0 0 0 2px $white;
+  margin-right: -0.8em !important;
+}
+
+@each $name, $value in $colors {
+  .avatar-#{$name} {
+    background-color: tint-color($value, 70%);
+    color: $value;
+  }
+}

@@ -1,0 +1,25 @@
+
+/**** paginator ****/
+#paginator {
+  text-align: center;
+  margin: 10px 0;
+  font-size: 14px;
+}
+
+#paginator .pg {
+  font-weight: normal;
+  margin: 0 3px;
+}
+
+#paginator .prev {
+  margin-right: 30px;
+}
+
+#paginator .prev,
+#paginator .next {
+  text-decoration: underline;
+}
+
+#paginator .next {
+  margin-left: 30px;
+}

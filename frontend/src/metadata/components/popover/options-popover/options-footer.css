@@ -13,7 +13,7 @@
 }
 
 .option-editor-footer .item-text {
-  color: #ed7109;
+  color: var(--bs-accent-color);
   cursor: pointer;
 }
 

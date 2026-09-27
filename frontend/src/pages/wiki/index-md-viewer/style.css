@@ -18,12 +18,12 @@
 
 .wiki-nav-content a:hover {
   text-decoration: none;
-  color: #ED7109;
+  color: var(--bs-accent-color);
 }
 
 .wiki-nav-content-highlight a {
   text-decoration: none;
-  color: #ED7109;
+  color: var(--bs-accent-color);
 }
 
 .switch-btn {

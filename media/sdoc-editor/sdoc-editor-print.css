@@ -5633,7 +5633,7 @@ pre[class*=language-] {
 }
 
 .sdoc-ai-content .sdoc-ai-search .sdoc-send-arrow {
-  color: #ff9800;
+  color: var(--bs-primary);
   cursor: pointer;
   pointer-events: auto;
   position: absolute;
@@ -5759,8 +5759,8 @@ pre[class*=language-] {
 }
 
 .select-btn .link-address-btn.active, .select-btn .link-block-btn.active {
-  border-bottom: 2px solid #ff9800;
-  color: #ff9800
+  border-bottom: 2px solid var(--bs-primary);
+  color: var(--bs-primary)
 }
 
 .select-btn .link-address-btn {

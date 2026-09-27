@@ -14,7 +14,7 @@
 }
 
 .sf-metadata-kanban-card.selected {
-  border-color: #ff9800;
+  border-color: var(--bs-primary);
 }
 
 .sf-metadata-view-kanban-boards.readonly .sf-metadata-kanban-card {

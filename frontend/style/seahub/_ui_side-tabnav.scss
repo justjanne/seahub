@@ -1,0 +1,233 @@
+
+/**** side-tabnav ****/
+.logo-container {
+  padding: .5rem 1rem;
+  background: #f4f4f7;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.side-textnav .hd {
+  padding-bottom: 4px;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 1em;
+}
+
+@media (max-width: 767px) {
+  .side-nav {
+    background: var(--bs-body-bg);
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    max-width: calc(100% - 40px);
+    position: fixed;
+    left: -300px;
+    top: 0;
+    bottom: 0;
+    z-index: 1002;
+    box-shadow: 0 0 4px #ccc;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+  }
+
+  .side-nav-shown {
+    left: 0;
+  }
+}
+
+.side-nav {
+  padding: 0;
+  overflow: hidden;
+  border-right: 1px solid var(--bs-border-secondary-color);
+}
+
+.side-nav:hover {
+  overflow-y: auto;
+}
+
+.home-side-nav {
+  flex: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* make .side-nav-footer on the bottom */
+  overflow: hidden;
+  /* for ff */
+  border-right: 1px solid #eee;
+}
+
+.side-nav-con {
+  padding: 20px;
+  overflow: hidden;
+}
+
+@media (max-width: 767px) {
+  .side-nav-con {
+    overflow-y: auto;
+  }
+}
+
+.side-nav-con:hover {
+  overflow-y: auto;
+}
+
+.side-nav-footer {
+  display: flex;
+  flex-shrink: 0;
+  padding: 12px 20px 16px;
+  background: #f8f8f8;
+  border-top: 1px solid #eee;
+}
+
+.side-nav-footer .item {
+  color: $secondary;
+  font-weight: normal;
+  margin-right: 10px;
+}
+
+.side-nav-footer .last-item {
+  margin-left: auto;
+}
+
+.side-tabnav .hd {
+  margin-bottom: 0.5em;
+}
+
+.side-tabnav h3.hd,
+.side-tabnav .hd h3 {
+  color: #f7941d;
+}
+
+.side-tabnav .hd h3 {
+  margin-bottom: 0;
+}
+
+.side-tabnav .hd .avatar {
+  /*for 'group'*/
+  vertical-align: middle;
+  border-radius: 1000px;
+  margin: 0 6px 0 4px;
+}
+
+.side-tabnav .grp-name {
+  /*for 'group'*/
+  display: inline-block;
+  max-width: 130px;
+  font-weight: normal;
+}
+
+.side-tabnav-tabs {
+  margin-bottom: 1em;
+}
+
+.side-tabnav-tabs .tab {
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.side-tabnav-tabs .tab a {
+  /* for IE 11: no border-radius here */
+  display: block;
+  font-size: 15px;
+  padding: 4px 4px 4px 0;
+  color: var(--bs-body-color);
+  font-weight: normal;
+}
+
+.side-tabnav-tabs .tab a:focus {
+  text-decoration: none;
+}
+
+.side-tabnav-tabs .tab ul a {
+  font-size: 14px;
+  line-height: 24px;
+  padding: 0;
+}
+
+.side-tabnav-tabs .tab a:hover {
+  background-color: #feefb8;
+  text-decoration: none;
+}
+
+.side-tabnav-tabs .tab [class^="sf2-icon-"],
+.side-tabnav-tabs .tab [class^="sf3-font-"] {
+  display: inline-block;
+  width: 42px;
+  margin-right: 5px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 24px;
+  line-height: 1;
+  color: #999;
+}
+
+.side-nav-toggle {
+  font-size: 1.5rem;
+  color: #999;
+  margin-right: 15px;
+}
+
+#group-nav .sharp,
+#share-admin-nav .sharp {
+  display: inline-block;
+  width: 42px;
+  margin-right: 5px;
+  text-align: right;
+  color: #aaa;
+}
+
+#group-nav .toggle-icon,
+#share-admin-nav .toggle-icon {
+  color: #999;
+}
+
+.side-tabnav-tabs .tab-cur a,
+.side-tabnav-tabs .tab-cur a:hover {
+  background-color: #feac74;
+}
+
+.side-tabnav-tabs .tab-cur [class^="sf2-icon-"],
+.side-tabnav-tabs .tab-cur [class^="sf3-font-"],
+.side-tabnav-tabs .tab-cur a,
+#group-nav .tab-cur .sharp,
+#share-admin-nav .tab-cur .sharp {
+  color: $white;
+}
+
+.side-tabnav-tabs .tab-cur a {
+  font-weight: bold;
+}
+
+.side-textnav .hd {
+  margin: 2em 0 .5em;
+}
+
+.side-textnav-tabs .tab a {
+  display: block;
+  padding: 10px 0;
+  font-weight: normal;
+  color: $secondary;
+  border-bottom: 1px solid var(--bs-border-secondary-color);
+  margin-bottom: 3px;
+}
+
+.side-textnav-tabs .tab-cur a,
+.side-textnav-tabs .tab a:hover {
+  color: $accent-color;
+  text-decoration: none;
+}
+
+.side-search-form {
+  margin-top: 25px;
+}
+
+.side-search-form .input {
+  width: calc(100% - 12px);
+  padding: 2px 5px;
+  background: #fafafa;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.075);
+}
+
+.side-search-form .input:focus {
+  background: $white;
+}

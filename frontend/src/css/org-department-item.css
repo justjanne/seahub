@@ -5,7 +5,7 @@
 }
 
 .cur-view-path .sf-heading a {
-  color: #ED7109;
+  color: var(--bs-accent-color);
 }
 
 .cur-view-subcontainer {

@@ -1,0 +1,1039 @@
+html {
+    font-size: 16px;
+}
+
+body, html {
+    height: 100%;
+}
+
+body {
+    -webkit-tap-highlight-color: transparent;
+    overflow-y: scroll;
+    position: relative;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+}
+
+@media print {
+    body {
+        background: none;
+    }
+}
+
+.lead {
+    line-height: 1.4;
+}
+
+a {
+    text-decoration-skip: ink;
+}
+
+a, a:hover {
+    color: $accent-color;
+}
+
+.h1 a, .h2 a, .h3 a, .h4 a, .h5 a, .h6 a, h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+    color: inherit;
+}
+
+b, strong {
+    font-weight: 600;
+}
+
+blockquote, ol, p, ul {
+    margin-bottom: 1em;
+}
+
+blockquote {
+    border-left: 2px solid $border-color;
+    color: $text-muted-dark;
+    font-style: italic;
+    padding-left: 2rem;
+}
+
+blockquote p {
+    margin-bottom: 1rem;
+}
+
+blockquote cite {
+    display: block;
+    text-align: right;
+}
+
+blockquote cite:before {
+    content: "— ";
+}
+
+code {
+    background: rgba(0, 0, 0, 0.025);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: $border-radius;
+    padding: 3px;
+}
+
+pre code {
+    background: none;
+    border: none;
+    border-radius: 0;
+    padding: 0;
+}
+
+hr {
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+}
+
+pre {
+    background-color: #f8fafc;
+    border-radius: $border-radius;
+    color: $gray-800;
+    font-size: 85%;
+    hyphens: none;
+    line-height: 1.45;
+    overflow: auto;
+    padding: 1rem;
+    tab-size: 4;
+    text-shadow: 0 1px $white;
+}
+
+img {
+    max-width: 100%;
+}
+
+.text-wrap {
+    font-size: 1rem;
+    line-height: 1.66;
+}
+
+.text-wrap > :first-child {
+    margin-top: 0;
+}
+
+.text-wrap > :last-child {
+    margin-bottom: 0;
+}
+
+.text-wrap > .h1, .text-wrap > .h2, .text-wrap > .h3, .text-wrap > .h4, .text-wrap > .h5, .text-wrap > .h6, .text-wrap > h1, .text-wrap > h2, .text-wrap > h3, .text-wrap > h4, .text-wrap > h5, .text-wrap > h6 {
+    margin-top: 1em;
+}
+
+.section-nav {
+    background-color: $gray-100;
+    border: 1px solid $border-color;
+    border-radius: $border-radius;
+    list-style: none;
+    margin: 1rem 0;
+    padding: 0.5rem 1rem;
+}
+
+.section-nav:before {
+    content: "Table of contents:";
+    display: block;
+    font-weight: 600;
+}
+
+@media print {
+    .container {
+        max-width: none;
+    }
+}
+
+.row-cards > .col, .row-cards > [class*=col-] {
+    display: flex;
+    flex-direction: column;
+}
+
+.row-deck > .col, .row-deck > [class*=col-] {
+    align-items: stretch;
+    display: flex;
+}
+
+.row-deck > .col .card, .row-deck > [class*=col-] .card {
+    flex: 1 1 auto;
+}
+
+.col-text {
+    max-width: 48rem;
+}
+
+.col-login {
+    max-width: 24rem;
+}
+
+.gutters-0 {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.gutters-0 > .col, .gutters-0 > [class*=col-] {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.gutters-0 .card {
+    margin-bottom: 0;
+}
+
+.gutters-xs {
+    margin-left: -0.25rem;
+    margin-right: -0.25rem;
+}
+
+.gutters-xs > .col, .gutters-xs > [class*=col-] {
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+}
+
+.gutters-xs .card {
+    margin-bottom: 0.5rem;
+}
+
+.gutters-sm {
+    margin-left: -0.5rem;
+    margin-right: -0.5rem;
+}
+
+.gutters-sm > .col, .gutters-sm > [class*=col-] {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+
+.gutters-sm .card {
+    margin-bottom: 1rem;
+}
+
+.gutters-lg {
+    margin-left: -1rem;
+    margin-right: -1rem;
+}
+
+.gutters-lg > .col, .gutters-lg > [class*=col-] {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.gutters-lg .card {
+    margin-bottom: 2rem;
+}
+
+.gutters-xl {
+    margin-left: -1.5rem;
+    margin-right: -1.5rem;
+}
+
+.gutters-xl > .col, .gutters-xl > [class*=col-] {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+.gutters-xl .card {
+    margin-bottom: 3rem;
+}
+
+.page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100%;
+}
+
+body.fixed-header .page {
+    padding-top: 4.5rem;
+}
+
+@media (min-width: 1600px) {
+    body.aside-opened .page {
+        margin-right: 22rem;
+    }
+}
+
+.page-main {
+    flex: 1 1 auto;
+}
+
+.page-content {
+    margin: 0.75rem 0;
+}
+
+@media (min-width: 768px) {
+    .page-content {
+        margin: 1.5rem 0;
+    }
+}
+
+.page-header {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 1.5rem 0;
+}
+
+.page-title {
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 2.5rem;
+    margin: 0;
+}
+
+.page-title-icon {
+    color: $text-muted;
+    font-size: 1.25rem;
+}
+
+.page-subtitle {
+    color: $text-muted-dark;
+    font-size: 0.8125rem;
+    margin-left: 2rem;
+}
+
+.page-subtitle a {
+    color: inherit;
+}
+
+.page-options {
+    margin-left: auto;
+}
+
+.page-breadcrumb {
+    flex-basis: 100%;
+}
+
+.page-description {
+    color: $text-muted-dark;
+    margin: 0.25rem 0 0;
+}
+
+.page-description a {
+    color: inherit;
+}
+
+.page-single {
+    align-items: center;
+    display: flex;
+    flex: 1 1 auto;
+    justify-content: center;
+    padding: 1rem 0;
+}
+
+.content-heading {
+    font-size: 1.25rem;
+    font-weight: 400;
+    line-height: 1.25;
+    margin: 2rem 0 1.5rem;
+}
+
+.content-heading:first-child {
+    margin-top: 0;
+}
+
+.aside {
+    background: $white;
+    border-left: 1px solid $border-color;
+    bottom: 0;
+    box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    right: 0;
+    top: 0;
+    visibility: hidden;
+    width: 22rem;
+    z-index: 100;
+}
+
+@media (min-width: 1600px) {
+    body.aside-opened .aside {
+        visibility: visible;
+    }
+}
+
+.aside-body {
+    flex: 1 1 auto;
+    overflow: auto;
+    padding: 1.5rem;
+}
+
+.aside-footer {
+    border-top: 1px solid $border-color;
+    padding: 1rem 1.5rem;
+}
+
+.aside-header {
+    border-bottom: 1px solid $border-color;
+    padding: 1rem 1.5rem;
+}
+
+.header {
+    border-bottom: 1px solid $border-color;
+    background: $white;
+    padding-bottom: 0.75rem;
+    padding-top: 0.75rem;
+}
+
+body.fixed-header .header {
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 1030;
+}
+
+@media print {
+    .header {
+        display: none;
+    }
+}
+
+.header .dropdown-menu {
+    margin-top: 0.75rem;
+}
+
+.nav-unread {
+    background: $danger;
+    border-radius: 50%;
+    height: 0.5rem;
+    position: absolute;
+    right: 0.25rem;
+    top: 0.25rem;
+    width: 0.5rem;
+}
+
+.header-brand {
+    color: inherit;
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 2rem;
+    margin-right: 1rem;
+    padding: 0;
+    transition: opacity 0.3s;
+    white-space: nowrap;
+}
+
+.header-brand:hover {
+    color: inherit;
+    opacity: 0.8;
+    text-decoration: none;
+}
+
+.header-brand-img {
+    height: 2rem;
+    line-height: 2rem;
+    margin-right: 0.5rem;
+    vertical-align: bottom;
+    width: auto;
+}
+
+.header-avatar {
+    border-radius: 50%;
+    vertical-align: bottom;
+}
+
+.header-avatar, .header-btn {
+    display: inline-block;
+    height: 2rem;
+    width: 2rem;
+}
+
+.header-btn {
+    font-size: 1rem;
+    line-height: 2rem;
+    text-align: center;
+}
+
+.header-btn.has-new {
+    position: relative;
+}
+
+.header-btn.has-new:before {
+    background: $danger;
+    border-radius: 50%;
+    content: "";
+    height: 6px;
+    position: absolute;
+    right: 4px;
+    top: 4px;
+    width: 6px;
+}
+
+.header-toggler {
+    color: $text-muted;
+    height: 2rem;
+    position: relative;
+    width: 2rem;
+}
+
+.header-toggler:hover {
+    color: $text-muted-dark;
+}
+
+.header-toggler-icon {
+    background: currentColor;
+    border-radius: $border-radius;
+    box-shadow: 0 5px currentColor, 0 -5px currentColor;
+    color: inherit;
+    height: 2px;
+    left: 50%;
+    margin: -2px 0 0 -0.5rem;
+    position: absolute;
+    top: 50%;
+    width: 1rem;
+}
+
+.footer {
+    background: $white;
+    border-top: 1px solid $border-color;
+    color: $text-muted;
+    font-size: 0.875rem;
+    padding: 1.25rem 0;
+}
+
+.footer a:not(.btn) {
+    color: $text-muted-dark;
+}
+
+@media print {
+    .footer {
+        display: none;
+    }
+}
+@each $color, $value in $colors {
+    @each $shade, $weight in $color-shades {
+        .bg-#{$color}-#{$shade} {
+            background-color: shift-color($value, $weight) !important;
+        }
+    }
+}
+
+.display-1 i, .display-2 i, .display-3 i, .display-4 i {
+    font-size: 0.815em;
+    vertical-align: baseline;
+}
+
+.text-inherit {
+    color: inherit !important;
+}
+
+.text-default {
+    color: $body-color !important;
+}
+
+.text-muted-dark {
+    color: $text-muted-dark !important;
+}
+
+.tracking-tight {
+    letter-spacing: -0.05em !important;
+}
+
+.tracking-normal {
+    letter-spacing: 0 !important;
+}
+
+.tracking-wide {
+    letter-spacing: 0.05em !important;
+}
+
+.leading-none {
+    line-height: 1 !important;
+}
+
+.leading-tight {
+    line-height: 1.25 !important;
+}
+
+.leading-normal {
+    line-height: 1.5 !important;
+}
+
+.leading-loose {
+    line-height: 2 !important;
+}
+
+@each $color, $value in $colors {
+    .bg-#{$color} {
+        background-color: $value !important;
+    }
+
+    .text-#{$color} {
+        color: $value !important;
+    }
+}
+
+.icon {
+    color: $text-muted !important;
+}
+
+.icon i {
+    vertical-align: -1px;
+}
+
+a.icon {
+    cursor: pointer;
+    text-decoration: none;
+}
+
+a.icon:hover {
+    color: $body-color !important;
+}
+
+.o-auto {
+    overflow: auto !important;
+}
+
+.o-hidden {
+    overflow: hidden !important;
+}
+
+.shadow {
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05) !important;
+}
+
+.shadow-none {
+    box-shadow: none !important;
+}
+
+
+@import "component/nav.scss";
+@import "component/button.scss";
+@import "component/alert.scss";
+@import "component/badge.scss";
+@import "component/table.scss";
+@import "component/pagination.scss";
+@import "component/card.scss";
+@import "component/popover.scss";
+@import "component/dropdown.scss";
+@import "component/list.scss";
+@import "component/avatar.scss";
+@import "component/progress.scss";
+
+.icons-list {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0 -1px -1px 0;
+    padding: 0;
+}
+
+.icons-list > li {
+    flex: 1 0 4rem;
+}
+
+.icons-list-wrap {
+    overflow: hidden;
+}
+
+.icons-list-item {
+    align-items: center;
+    border-bottom: 1px solid $border-color;
+    border-right: 1px solid $border-color;
+    display: flex;
+    height: 4rem;
+    justify-content: center;
+    text-align: center;
+}
+
+.icons-list-item i {
+    font-size: 1.25rem;
+}
+
+.img-gallery {
+    margin-bottom: -0.5rem;
+    margin-left: -0.25rem;
+    margin-right: -0.25rem;
+}
+
+.img-gallery > .col, .img-gallery > [class*=col-] {
+    padding-bottom: 0.5rem;
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+}
+
+.link-overlay {
+    position: relative;
+}
+
+.link-overlay:hover .link-overlay-bg {
+    opacity: 1;
+}
+
+.link-overlay-bg {
+    align-items: center;
+    background: rgba($blue, 0.8);
+    bottom: 0;
+    color: $white;
+    display: flex;
+    font-size: 1.25rem;
+    justify-content: center;
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: opacity 0.3s;
+}
+
+.media-icon {
+    border-radius: 100%;
+    height: 2rem;
+    line-height: 2rem;
+    text-align: center;
+    width: 2rem;
+}
+
+.media-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+@import "component/form.scss";
+@import "component/chart.scss";
+
+.chips {
+    margin: 0 0 -0.5rem;
+}
+
+.chips .chip {
+    margin: 0 0.5rem 0.5rem 0;
+}
+
+.chip {
+    background-color: $gray-100;
+    border-radius: 1rem;
+    color: $text-muted-dark;
+    display: inline-block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    height: 2rem;
+    line-height: 2rem;
+    padding: 0 0.75rem;
+    transition: background 0.3s;
+}
+
+.chip .avatar {
+    border-radius: 50%;
+    float: left;
+    height: 2rem;
+    margin: 0 0.5rem 0 -0.75rem;
+    width: 2rem;
+}
+
+a.chip:hover {
+    background-color: $gray-200;
+    color: inherit;
+    text-decoration: none;
+}
+
+.stamp {
+    background: $gray-600;
+    border-radius: $border-radius;
+    color: $white;
+    display: inline-block;
+    font-weight: 600;
+    height: 2rem;
+    line-height: 2rem;
+    min-width: 2rem;
+    padding: 0 0.25rem;
+    text-align: center;
+}
+
+.stamp-md {
+    height: 2.5rem;
+    line-height: 2.5rem;
+    min-width: 2.5rem;
+}
+
+.chat {
+    flex-direction: column;
+    justify-content: flex-end;
+    list-style-type: none;
+    margin: 0;
+    min-height: 100%;
+    outline: 0;
+}
+
+.chat, .chat-line {
+    display: flex;
+    padding: 0;
+}
+
+.chat-line {
+    flex-direction: row-reverse;
+    position: relative;
+    text-align: right;
+}
+
+.chat-line + .chat-line {
+    padding-top: 1rem;
+}
+
+.chat-message {
+    background-color: $primary;
+    border-radius: $border-radius;
+    color: $white;
+    display: inline-block;
+    font-size: 0.875rem;
+    line-height: 1.4;
+    margin: 0 0.5rem 0 2.5rem;
+    padding: 0.375rem 0.5rem;
+    position: relative;
+    text-align: left;
+    white-space: normal;
+}
+
+.chat-message > :last-child {
+    margin-bottom: 0 !important;
+}
+
+.chat-message:after {
+    border-bottom: 6px solid transparent;
+    border-left: 6px solid $primary;
+    border-top: 6px solid transparent;
+    content: "";
+    position: absolute;
+    right: -5px;
+    top: 7px;
+}
+
+.chat-message img {
+    max-width: 100%;
+}
+
+.chat-message p {
+    margin-bottom: 1em;
+}
+
+.chat-line-friend {
+    flex-direction: row;
+}
+
+.chat-line-friend + .chat-line-friend {
+    margin-top: -0.5rem;
+}
+
+.chat-line-friend + .chat-line-friend .chat-author {
+    visibility: hidden;
+}
+
+.chat-line-friend + .chat-line-friend .chat-message:after {
+    display: none;
+}
+
+.chat-line-friend .chat-message {
+    background-color: #f0f0f0;
+    color: $body-color;
+    margin-left: 0.5rem;
+    margin-right: 2.5rem;
+}
+
+.chat-line-friend .chat-message:after {
+    border-left-width: 0;
+    border-right: 5px solid #f0f0f0;
+    left: -5px;
+    right: auto;
+}
+
+.example {
+    border: 1px solid $border-color;
+    border-radius: $border-radius $border-radius 0 0;
+    font-size: 0.9375rem;
+    padding: 1.5rem;
+}
+
+.example-bg {
+    background: $white;
+}
+
+.example + .highlight {
+    border-radius: 0 0 $border-radius $border-radius;
+    border-top: none;
+    margin-top: 0;
+}
+
+.highlight {
+    background: #fcfcfc;
+    border: 1px solid $border-color;
+    border-radius: $border-radius;
+    font-size: 0.9375rem;
+    margin: 1rem 0 2rem;
+    max-height: 40rem;
+    overflow: auto;
+}
+
+.highlight pre {
+    background-color: transparent;
+    margin-bottom: 0;
+}
+
+.example-column {
+    margin: 0 auto;
+}
+
+.example-column > .card:last-of-type {
+    margin-bottom: 0;
+}
+
+.example-column-1 {
+    max-width: 20rem;
+}
+
+.example-column-2 {
+    max-width: 40rem;
+}
+
+@import "component/tag.scss";
+@import "component/highlight.scss";
+
+.carousel-item-background {
+    background: rgba(0, 0, 0, 0.5);
+    bottom: 0;
+    content: "";
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+@import "component/article.scss";
+
+.loading-icon {
+    -moz-animation: loading 0.9s linear infinite;
+    -webkit-animation: loading 0.9s linear infinite;
+    animation: loading 0.9s linear infinite;
+    border: 2px solid #eee;
+    border-left-color: #aaa;
+    border-radius: 50%;
+    height: 26px;
+    margin: 1em auto;
+    width: 26px;
+}
+
+@keyframes loading {
+    0% {
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    to {
+        -moz-transform: rotate(1turn);
+        -ms-transform: rotate(1turn);
+        -webkit-transform: rotate(1turn);
+        transform: rotate(1turn);
+    }
+}
+
+.modal {
+    --bs-modal-color: var(--bs-body-color);
+    --bs-modal-bg: var(--bs-body-bg);
+}
+
+@import "component/custom-input.scss";
+
+.font-weight-light {
+    font-weight: 300 !important;
+}
+
+.font-weight-lighter {
+    font-weight: lighter !important;
+}
+
+.font-weight-normal {
+    font-weight: 400 !important;
+}
+
+.font-weight-bold {
+    font-weight: 700 !important;
+}
+
+.font-weight-bolder {
+    font-weight: bolder !important;
+}
+
+@import "component/spacing.scss";
+
+a {
+    background-color: transparent;
+    text-decoration: none;
+}
+
+.sr-only {
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+    white-space: nowrap;
+}
+
+.custom-select {
+  appearance: none;
+  border: 1px solid $border-color;
+  border-radius: $border-radius;
+  color: $input-color;
+  display: inline-block;
+  font-size: 0.9375rem;
+  font-weight: 400;
+  height: 2.375rem;
+  line-height: 1.6;
+  padding: 0.5rem 1.75rem 0.5rem 0.75rem;
+  vertical-align: middle;
+  width: 100%;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-check-input {
+  border-color: rgba(0, 0, 0, 0.5);
+}
+
+.form-check-input:checked {
+  background-color: $blue;
+  border-color: $input-focus-border-color;
+}
+
+.form-check-input:focus, .form-select:focus {
+  box-shadow: 0 0 0 2px rgba($blue, 0.25);
+}
+
+.btn-info, .btn-primary, .btn-success, .btn-warning {
+    --bs-btn-color: #{$white};
+    --bs-btn-hover-color: #{$white};
+    --bs-btn-active-color: #{$white};
+    --bs-btn-disabled-color: #{$white};
+}
+
+.btn-secondary {
+    --bs-btn-color: #{$body-color};
+    --bs-btn-hover-color: #{$body-color};
+    --bs-btn-active-color: #{$body-color};
+    --bs-btn-disabled-color: #{$body-color};
+}
+
+.btn-block {
+    display: block;
+    width: 100%;
+}
+
+.btn-check:checked + .btn, .btn.active, .btn.btn-primary:active, .btn.btn-primary:hover, .btn.show, .btn:first-child:active, :not(.btn-check) + .btn:active {
+    background-color: shade-color($primary, 15%);
+    border-color: shade-color($primary, 20%);
+    color: $white;
+}
+
+.btn-outline-primary:active, .btn-outline-primary:hover {
+    background-color: $primary;
+    border-color: $primary;
+    color: $white;
+}
+
+.btn.btn-secondary:active, .btn.btn-secondary:hover {
+    background-color: $body-secondary-bg;
+    border-color: $btn-secondary-active-border-color;
+    color: $body-color;
+}

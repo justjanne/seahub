@@ -61,7 +61,7 @@
 .price-version-container-header .price-version-plan-name {
   font-size: 1.5rem;
   padding: 1rem 0;
-  border-bottom: 1px solid #ED7109;
+  border-bottom: 1px solid var(--bs-accent-color);
 }
 
 .price-version-container-header .price-table-btn-details {
@@ -115,7 +115,7 @@
 
 .plan-description-item.plan-selected {
   background-color: #fff5eb;
-  border-color: #ED7109;
+  border-color: var(--bs-accent-color);
   border-width: 2px;
 }
 
@@ -127,7 +127,7 @@
 .plan-description-item .plan-description {
   font-size: 20px;
   font-weight: 500;
-  color: #ED7109;
+  color: var(--bs-accent-color);
 }
 
 .order-item {
@@ -172,7 +172,7 @@
 .order-item .order-price {
   font-size: 26px;
   font-weight: 500;
-  color: #ED7109;
+  color: var(--bs-accent-color);
 }
 
 .order-item .order-price span:first-child {
@@ -180,7 +180,7 @@
 }
 
 .subscription-submit {
-  background-color: #ED7109;
+  background-color: var(--bs-accent-color);
   border-radius: 5px;
   width: 100%;
   margin-bottom: 10px;
@@ -209,7 +209,7 @@
 }
 
 .subscription-container .text-orange {
-  color: #ED7109 !important;
+  color: var(--bs-accent-color) !important;
 }
 
 .user-numbers.input-group .input-group-prepend {

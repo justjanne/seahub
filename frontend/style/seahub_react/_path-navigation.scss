@@ -1,0 +1,22 @@
+/* path navigation */
+.path-container {
+  /* for the real path */
+  font-size: 1rem;
+  word-break: break-all;
+}
+
+.path-split {
+  display: inline-block;
+  padding: 0 5px;
+  color: var(--bs-icon-color);
+}
+
+.path-link {
+  color: $accent-color !important;
+  text-decoration: none;
+}
+
+.path-link:hover {
+  cursor: pointer;
+  text-decoration: underline !important;
+}

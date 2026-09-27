@@ -115,7 +115,7 @@ img[src=""] {
 
 .wiki-page-container .outline-h2.active,
 .wiki-page-container .outline-h3.active { 
-  color: #ED7109;
+  color: var(--bs-accent-color);
 }
 
 .wiki-page-container .sf-slate-viewer-scroll-container {

@@ -223,7 +223,7 @@
 
 .search-filters-container .search-filter-toggle.highlighted,
 .search-filter-toggle.highlighted .sf3-font-down {
-  color: #ed7109;
+  color: var(--bs-accent-color);
 }
 
 .rc-calendar {

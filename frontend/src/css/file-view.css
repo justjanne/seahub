@@ -81,7 +81,7 @@ body {
 }
 
 .file-view-header .file-toolbar-btn#save-file {
-  color: #ED7109;
+  color: var(--bs-accent-color);
 }
 
 .file-view-header .file-toolbar-btn .comment-tip {

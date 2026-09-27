@@ -1,0 +1,12 @@
+
+.popover {
+  filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.1));
+}
+
+.popover.bs-popover-auto[data-popper-placement^=top], .popover.bs-popover-top {
+  margin-bottom: 0.625rem;
+}
+
+.popover .arrow {
+  margin-left: calc(.25rem + 2px);
+}

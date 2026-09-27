@@ -1,0 +1,20 @@
+/**** caret ****/
+
+.right-outer-caret {
+  border-width: 10px 0 10px 10px;
+  border-color: transparent transparent transparent #CBCBCB;
+}
+
+.right-outer-caret {
+  position: absolute;
+  right: -11px;
+}
+
+.bottom-outer-caret {
+  border-width: 10px 10px 0;
+}
+
+.bottom-outer-caret {
+  position: absolute;
+  bottom: -11px;
+}

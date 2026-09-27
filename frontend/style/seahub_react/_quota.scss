@@ -1,0 +1,43 @@
+/** quota in account popover **/
+#quota-bar {
+  display: block;
+  height: 6px;
+  border-radius: 5px;
+  overflow: hidden;
+  background-color: #eee;
+}
+
+#quota-bar .usage {
+  display: inline-block;
+  height: 100%;
+  vertical-align: top;
+  background: $accent-color;
+}
+
+#quota-usage {
+  background: #ddd;
+}
+
+.department-usage-container {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 0.75rem;
+}
+
+.department-usage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.department-usage .department-quota-bar {
+  flex: 1;
+  margin-right: 0.5rem !important;
+  height: 0.75rem !important;
+  width: 60px;
+}
+
+.department-usage .department-quota-info {
+  font-size: 0.75rem;
+  color: $secondary;
+}

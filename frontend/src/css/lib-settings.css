@@ -42,7 +42,7 @@
   display: block;
   width: 4px;
   height: 24px;
-  background-color: #ff9800;
+  background-color: var(--bs-primary);
   border-radius: 2px;
   position: absolute;
   top: 4px;

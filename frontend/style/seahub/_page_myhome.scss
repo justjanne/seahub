@@ -1,0 +1,49 @@
+
+/*myhome*/
+#quota-bar {
+  display: block;
+  height: 6px;
+  border-radius: 5px;
+  overflow: hidden;
+  background-color: #eee;
+}
+
+#quota-bar .usage {
+  display: inline-block;
+  height: 100%;
+  vertical-align: top;
+  background: $accent-color;
+}
+
+#my-usage,
+#quota-usage {
+  background: #ddd;
+}
+
+#share-usage {
+  background: #eee;
+}
+
+#usage-details {
+  font-size: 12px;
+  color: $secondary;
+}
+
+#traffic-stat {
+  color: var(--bs-body-color);
+  font-weight: normal;
+}
+
+#notices-loading,
+#trash-more-loading {
+  text-align: center;
+  width: 100%;
+}
+
+#trash-more {
+  margin-bottom: 30px;
+}
+
+#notices-more {
+  margin: -20px 0 20px;
+}

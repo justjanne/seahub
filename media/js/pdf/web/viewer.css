@@ -1157,8 +1157,8 @@
   --field-border-color: rgba(187, 187, 188, 1);
   --treeitem-color: rgba(0, 0, 0, 0.8);
   --treeitem-bg-color: rgba(0, 0, 0, 0.15);
-  --treeitem-hover-color: #ED7109;
-  --treeitem-selected-color: #ED7109;
+  --treeitem-hover-color: var(--bs-accent-color);
+  --treeitem-selected-color: var(--bs-accent-color);
   --treeitem-selected-bg-color: rgba(0, 0, 0, 0.25);
   --thumbnail-hover-color: rgba(0, 0, 0, 0.1);
   --thumbnail-selected-color: rgba(0, 0, 0, 0.2);
@@ -1245,8 +1245,8 @@
     --field-border-color: rgba(115, 115, 115, 1);
     --treeitem-color: rgba(255, 255, 255, 0.8);
     --treeitem-bg-color: rgba(255, 255, 255, 0.15);
-    --treeitem-hover-color: #ED7109;
-    --treeitem-selected-color: #ED7109;
+    --treeitem-hover-color: var(--bs-accent-color);
+    --treeitem-selected-color: var(--bs-accent-color);
     --treeitem-selected-bg-color: rgba(255, 255, 255, 0.25);
     --thumbnail-hover-color: rgba(255, 255, 255, 0.1);
     --thumbnail-selected-color: rgba(255, 255, 255, 0.2);

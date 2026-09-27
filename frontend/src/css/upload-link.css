@@ -32,7 +32,7 @@ body {
 
 #upload-link-drop-zone {
   background: rgba(255, 152, 0, 0.1);
-  border: 2px dashed #ff9800;
+  border: 2px dashed var(--bs-primary);
   border-radius: 4px;
   padding: 28px 0;
 }

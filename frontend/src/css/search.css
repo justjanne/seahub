@@ -55,7 +55,7 @@
 }
 
 .search-container.show .input-icon .search-icon-right.search-filter-controller.active {
-  color: #ed7109;
+  color: var(--bs-accent-color);
 }
 
 .search-container.show .input-icon .search-icon-right.search-filter-controller.active:hover {

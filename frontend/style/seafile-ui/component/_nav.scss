@@ -1,0 +1,97 @@
+.nav-item, .nav-link {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  min-width: 2rem;
+  padding: 0 0.75rem;
+  transition: color 0.3s;
+  user-select: none;
+}
+
+.nav-item .badge, .nav-link .badge {
+  min-width: 1rem;
+  padding: 0.2rem 0.25rem;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.nav-tabs {
+  color: $text-muted;
+  margin: 0 -0.75rem;
+  user-select: none;
+}
+
+.nav-tabs .nav-link {
+  border: 0;
+  border-bottom: 1px solid transparent;
+  color: inherit;
+  font-weight: 400;
+  margin-bottom: -1px;
+  padding: 1rem 0;
+  transition: border-color 0.3s;
+}
+
+.nav-tabs .nav-link.active, .nav-tabs .nav-link:hover:not(.disabled) {
+  border-color: $accent-color;
+  color: $accent-color;
+}
+
+.nav-tabs .nav-link.active {
+  background: transparent;
+}
+
+.nav-tabs .nav-link.disabled {
+  cursor: default;
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.nav-tabs .nav-item {
+  margin-bottom: 0;
+  position: relative;
+}
+
+.nav-tabs .nav-item i {
+  display: inline-block;
+  font-size: 0.875rem;
+  line-height: 1;
+  margin-right: 0.25rem;
+  vertical-align: baseline;
+  width: 0.875rem;
+}
+
+.nav-tabs .nav-item:hover .nav-submenu {
+  display: block;
+}
+
+.nav-tabs .nav-submenu {
+  background: $white;
+  border: 1px solid $border-color;
+  border-radius: 0 0 $border-radius $border-radius;
+  border-top: none;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  display: none;
+  min-width: 10rem;
+  position: absolute;
+  z-index: 10;
+}
+
+.nav-tabs .nav-submenu .nav-item {
+  color: $text-muted;
+  cursor: pointer;
+  display: block;
+  margin: 0 !important;
+  padding: 0.5rem 1rem;
+  transition: background 0.3s;
+}
+
+.nav-tabs .nav-submenu .nav-item.active {
+  color: $primary;
+}
+
+.nav-tabs .nav-submenu .nav-item:hover {
+  background: rgba(0, 0, 0, 0.024);
+  color: $text-muted-dark;
+  text-decoration: none;
+}

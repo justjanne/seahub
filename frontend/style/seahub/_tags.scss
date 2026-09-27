@@ -1,0 +1,289 @@
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+}
+
+body,
+ul,
+ol,
+li,
+dl,
+dt,
+dd,
+pre,
+blockquote,
+form,
+input,
+textarea,
+select,
+button,
+img {
+  padding: 0;
+  margin: 0;
+}
+
+input,
+textarea,
+button,
+select {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--bs-body-color);
+  word-wrap: break-word;
+}
+
+input,
+button,
+select {
+  line-height: 19px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.5;
+  /* overwrite bootstrap */
+}
+
+h1 {
+  font-size: 1.9em;
+}
+
+h2 {
+  font-size: 1.5em;
+  color: #222;
+  font-weight: bold;
+}
+
+h3 {
+  font-size: 16px;
+  color: var(--bs-body-color);
+  font-weight: normal;
+}
+
+h4 {
+  font-size: 1.1em;
+  color: #222;
+  font-weight: normal;
+}
+
+h5,
+h6 {
+  font-size: 1em;
+}
+
+ul {
+  list-style: none;
+}
+
+dl {
+  margin: 1.5em 0;
+}
+
+dt {
+  color: $secondary;
+  margin: 24px 0 2px;
+  font-weight: normal;
+}
+
+dd {
+  margin-bottom: .8em;
+  color: #222;
+}
+
+a {
+  color: $accent-color;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+a.normal {
+  font-weight: normal;
+}
+
+a:focus,
+a:hover {
+  color: $accent-color;
+}
+
+img {
+  border: none;
+}
+
+textarea {
+  overflow: auto;
+  /* rm default vertical scrollbar in ie */
+  resize: vertical;
+  /* for drag */
+  outline: 0;
+}
+
+textarea,
+input {
+  border: 1px solid #ccc;
+}
+
+input {
+  margin: 3px 0;
+}
+
+input,
+button {
+  display: inline-block;
+}
+
+input[type=text],
+input[type=password] {
+  box-sizing: content-box;
+  height: 22px;
+}
+
+select,
+button {
+  box-sizing: border-box;
+}
+
+button,
+input[type=submit],
+input[type=button],
+input.submit,
+.sf-btn-link,
+.fileinput-button,
+select {
+  padding: 5px 6px;
+  border: 1px solid #c5c5c5;
+  border-radius: 2px;
+}
+
+.sf-btn-link {
+  display: inline-block;
+  color: var(--bs-body-color);
+  line-height: 19px;
+  text-decoration: none;
+  font-weight: normal;
+}
+
+.big-btn-link {
+  font-size: 14px;
+  line-height: 1.5;
+  padding: 6px 20px;
+  border-radius: 3px;
+}
+
+.sf-btn-link:hover {
+  color: var(--bs-body-color);
+  text-decoration: none;
+}
+
+input[type=radio] {
+  border: 0;
+}
+
+input:focus,
+button:focus,
+select:focus,
+textarea:focus {
+  border-color: $input-focus-border-color;
+  outline: none;
+}
+
+input[type="checkbox"]:focus,
+input[type="radio"]:focus {
+  border-color: $input-focus-border-color;
+  box-shadow: $input-focus-box-shadow;
+  outline: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  /*for input type="number" in chrome: to hide up/download arrow*/
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input::-moz-focus-inner,
+button::-moz-focus-inner {
+  /*Remove button padding in FF*/
+  border: 0;
+  padding: 0;
+}
+
+input[type=submit],
+input.submit,
+button.submit {
+  margin-top: 8px;
+}
+
+input[type=submit]:hover,
+input[type=reset]:hover,
+input[type=button]:hover,
+button:hover,
+.sf-btn-link:hover,
+.fileinput-button:hover {
+  cursor: pointer;
+  background: $white;
+}
+
+input[type="file"] {
+  border: none;
+  height: 24px;
+  line-height: 24px;
+}
+
+label {
+  display: inline-block;
+  margin: 4px 0px;
+}
+
+iframe {
+  display: block;
+  width: 100%;
+}
+
+pre,
+code {
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+pre {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+table {
+  width: 100%;
+  margin: 8px 0 40px;
+}
+
+caption {
+  font-size: 1.1em;
+  font-weight: bold;
+  margin-bottom: .6em;
+}
+
+th {
+  text-align: left;
+  font-weight: normal;
+  color: #9c9c9c;
+}
+
+th,
+td {
+  padding: 5px 3px;
+  border-bottom: 1px solid #eee;
+}
+
+td {
+  color: var(--bs-body-color);
+  font-size: 14px;
+  word-break: break-all;
+  /* mainly for lib/folder/file name */
+}
+
+table img {
+  vertical-align: middle;
+}

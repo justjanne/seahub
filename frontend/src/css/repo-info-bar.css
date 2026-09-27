@@ -70,10 +70,10 @@
   font-weight: normal;
   padding: 0px 8px;
   border: 0;
-  color: #ED7109;
+  color: var(--bs-accent-color);
 }
 
 .repo-info-bar .repo-info-bar-migrate .btn-link:active {
-  color: #ED7109;
+  color: var(--bs-accent-color);
   background: var(--bs-body-bg);
 }

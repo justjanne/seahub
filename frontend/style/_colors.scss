@@ -1,0 +1,172 @@
+@use "sass:color";
+@use "sass:math";
+
+$blue:    #467fcf !default;
+$azure:   #45aaf2 !default;
+$indigo:  #6574cd !default;
+$purple:  #a55eea !default;
+$pink:    #f66d9b !default;
+$red:     #cd201f !default;
+$orange:  #ed7109 !default;
+$yellow:  #f1c40f !default;
+$lime:    #7bd235 !default;
+$green:   #5eba00 !default;
+$teal:    #2bcbba !default;
+$cyan:    #17a2b8 !default;
+
+$gray-600: #868e96 !default;
+
+$primary:   #ff9800 !default;
+$secondary: #666 !default;
+$success:   $green !default;
+$info:      $azure !default;
+$warning:   $yellow !default;
+$danger:    $red !default;
+$text-muted-dark: #6e7687 !default;
+$dark:      #343a40 !default;
+
+$accent-color: $orange !default;
+$body-color: #212529 !default;
+$body-secondary-bg: #f5f5f5 !default;
+$dropdown-item-hover-bg: #20a0ff !default;
+
+$font-family-monospace: Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
+$font-family-base: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Helvetica, Arial, sans-serif !default;
+$font-size-base: .875rem !default;
+
+$border-color: rgba(0, 40, 100, .12) !default;
+$border-radius:    3px !default;
+$border-radius-sm: 3px !default;
+$border-radius-lg: 3px !default;
+
+$code-color: inherit !default;
+
+$headings-font-family: inherit !default;
+$headings-color:       inherit !default;
+
+$spacer: 1rem !default;
+$spacers: (
+        0: 0,
+        1: $spacer * .25,
+        2: $spacer * .5,
+        3: $spacer * .75,
+        4: $spacer,
+        5: $spacer * 1.5,
+        6: $spacer * 2,
+        7: $spacer * 3,
+        8: $spacer * 4,
+        9: $spacer * 6
+) !default;
+
+$grid-breakpoints: (
+        xs: 0,
+        sm: 576px,
+        md: 768px,
+        lg: 992px,
+        xl: 1280px
+) !default;
+
+$container-max-widths: (
+        sm: 540px,
+        md: 720px,
+        lg: 960px,
+        xl: 1200px
+) !default;
+
+$font-size-sm: .8125rem !default;
+$font-size-lg: 1rem !default;
+
+$h1-font-size: 2rem !default;
+$h2-font-size: 1.75rem !default;
+$h3-font-size: 1.5rem !default;
+$h4-font-size: 1.125rem !default;
+$h5-font-size: 1rem !default;
+$h6-font-size: .875rem !default;
+
+$headings-margin-bottom: .66em !default;
+$headings-font-weight:   600 !default;
+$headings-line-height:   1.1 !default;
+$display-line-height:    $headings-line-height !default;
+
+$small-font-size: 87.5% !default;
+$code-font-size:  85% !default;
+$text-muted:      #9aa0ac !default;
+
+$kbd-color: #fff !default;
+$kbd-bg:    #343a40 !default;
+$pre-color: #212529 !default;
+
+$table-accent-bg: rgba(0, 0, 0, .02) !default;
+$table-hover-bg:  rgba(0, 0, 0, .04) !default;
+
+$input-btn-line-height:  1.6 !default;
+$input-btn-focus-width:  2px !default;
+
+$input-height:             2.375rem !default;
+$input-color:              #495057 !default;
+$input-border-color:       $border-color !default;
+$input-disabled-bg:        #f8f9fa !default;
+$input-focus-border-color: #1991eb !default;
+$input-focus-box-shadow:   0 0 0 2px rgba($blue, .25) !default;
+
+$custom-range-track-bg:           color.adjust($border-color, $lightness: 5%) !default;
+$custom-range-thumb-border-color: color.adjust($border-color, $lightness: -5%) !default;
+$btn-secondary-active-border-color: color.adjust($border-color, $lightness: -10%) !default;
+
+$input-group-addon-bg: #fbfbfc !default;
+
+
+$hr-border-color: $border-color !default;
+
+$btn-line-height: math.div(24, 13) !default;
+
+$dropdown-border-color: $border-color !default;
+$dropdown-box-shadow:   0 1px 2px 0 rgba(0, 0, 0, .05) !default;
+
+$nav-tabs-link-active-bg: transparent !default;
+
+$card-spacer-y:     1.5rem !default;
+$card-spacer-x:     1.5rem !default;
+$card-border-color: $border-color !default;
+$card-cap-padding-y: .75rem !default;
+
+$pagination-color:          #212529 !default;
+$pagination-disabled-color: #ced4da !default;
+
+$badge-font-weight:      600 !default;
+$alert-link-font-weight: 600 !default;
+
+$list-group-border-color:        $border-color !default;
+$list-group-active-color:        $primary !default;
+$list-group-active-bg:           tint-color($primary, 96%) !default;
+$list-group-active-border-color: $list-group-border-color !default;
+
+$modal-content-color: var(--bs-body-color) !default;
+$modal-content-bg:    var(--bs-body-bg) !default;
+
+$offcanvas-color:    var(--bs-body-color) !default;
+$offcanvas-bg-color: var(--bs-body-bg) !default;
+
+$popover-border-color:   #dee3eb !default;
+$popover-body-padding-y: .75rem !default;
+$popover-body-color:     $text-muted-dark !default;
+$popover-arrow-width:    .5rem !default;
+
+$zindex-modal-backdrop: 1040 !default;
+$zindex-modal:          1050 !default;
+$zindex-popover:        1060 !default;
+$zindex-tooltip:        1070 !default;
+
+$color-shades: (
+        "lightest": -90%,
+        "lighter":  -70%,
+        "light":    -30%,
+        "dark":      20%,
+        "darker":    60%,
+        "darkest":   80%
+) !default;
+
+// Hand-picked shades of the default orange (no tint/shade of a theme color
+// reproduces them exactly)
+$login-submit-focus-border-color: #f19645 !default;
+$login-link-color:                #e16c0a !default;

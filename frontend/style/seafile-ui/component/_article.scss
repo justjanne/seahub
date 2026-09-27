@@ -1,0 +1,197 @@
+.article {
+  color: $body-color;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.article .h1, .article .h2, .article .h3, .article .h4, .article .h5, .article .h6, .article h1, .article h2, .article h3, .article h4, .article h5, .article h6 {
+  color: $body-color;
+  font-weight: 700;
+  margin: 1.2em 0 0.4em;
+}
+
+.article .h2, .article h2 {
+  border-bottom: 1px solid #ccc;
+  line-height: 1.5;
+}
+
+.article .h1 + ol, .article .h1 + p, .article .h1 + pre, .article .h1 + ul, .article .h2 + ol, .article .h2 + p, .article .h2 + pre, .article .h2 + ul, .article .h3 + ol, .article .h3 + p, .article .h3 + pre, .article .h3 + ul, .article .h4 + ol, .article .h4 + p, .article .h4 + pre, .article .h4 + ul, .article .h5 + ol, .article .h5 + p, .article .h5 + pre, .article .h5 + ul, .article .h6 + ol, .article .h6 + p, .article .h6 + pre, .article .h6 + ul, .article h1 + ol, .article h1 + p, .article h1 + pre, .article h1 + ul, .article h2 + ol, .article h2 + p, .article h2 + pre, .article h2 + ul, .article h3 + ol, .article h3 + p, .article h3 + pre, .article h3 + ul, .article h4 + ol, .article h4 + p, .article h4 + pre, .article h4 + ul, .article h5 + ol, .article h5 + p, .article h5 + pre, .article h5 + ul, .article h6 + ol, .article h6 + p, .article h6 + pre, .article h6 + ul {
+  margin-top: 0;
+}
+
+.article p {
+  margin: 0.8em 0;
+  word-wrap: break-word;
+}
+
+.article ul {
+  list-style-type: disc;
+}
+
+.article ol, .article ul {
+  margin: 0.5em 0;
+  padding-left: 2em;
+}
+
+.article li p:first-child, .article li.task-list-item p:nth-child(2) {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.article li.task-list-item {
+  list-style: none;
+  position: relative;
+}
+
+.article li.task-list-item input[type=checkbox] {
+  display: inline-block;
+  left: -1.8em;
+  position: absolute;
+  top: 0.4em;
+}
+
+.article input[type=checkbox] {
+  width: auto;
+}
+
+.article pre {
+  background: #f5f7fa;
+  border-radius: $border-radius;
+  -moz-border-radius: $border-radius;
+  -webkit-border-radius: $border-radius;
+  font-size: 13px;
+  margin: 1em 0;
+  padding: 16px;
+  white-space: pre-wrap;
+}
+
+.article pre[class*=language-] {
+  background-color: #f5f7fa;
+}
+
+.article .tag {
+  background-color: transparent;
+  line-height: 1em;
+  user-select: text;
+}
+
+.article p code {
+  background-color: rgba(27, 31, 35, 0.05);
+  border: none;
+  border-radius: $border-radius;
+  font-size: 85%;
+  margin: 0;
+  padding: 0.2em 0.4em;
+}
+
+.article .code p {
+  border: none;
+  margin: 0;
+  padding: 0;
+  white-space: pre-wrap;
+}
+
+.article .html-element.active {
+  border: 1px solid #eb8205;
+}
+
+.article span.html-element {
+  display: inline-block;
+  margin-left: 1px;
+  margin-right: 1px;
+}
+
+.article div.html-element, .article span.html-element {
+  background: $body-secondary-bg;
+  border: 1px solid #bbb;
+  border-radius: 2px;
+}
+
+.article div.html-element {
+  margin: 0.8em 0;
+}
+
+.article a {
+  font-weight: 400;
+}
+
+.article blockquote {
+  border-left: 4px solid #ddd;
+  color: $secondary;
+  font-style: italic;
+  margin: 1.2em 0;
+  padding: 0 15px;
+}
+
+.article table {
+  border-collapse: collapse;
+  border-left: 1px solid #ddd;
+  border-top: 1px solid #ddd;
+  margin: 10px 0;
+  width: 100%;
+}
+
+.article tr:nth-child(odd) {
+  background-color: #f7f7f7;
+}
+
+.article tr:first-child {
+  font-weight: 700;
+}
+
+.article td, .article th {
+  padding: 6px 13px;
+}
+
+.article table p {
+  margin: 0;
+}
+
+.article table tr {
+  height: 100%;
+}
+
+.article table th, .article table tr {
+  display: flex;
+}
+
+.article table td, .article table th {
+  border-color: #ccc;
+  border-style: solid;
+  border-width: 0 1px 1px 0;
+  flex: 1;
+  line-height: 1.5;
+  padding: 10px;
+  word-break: break-all;
+}
+
+.article table th {
+  font-weight: 700;
+}
+
+.article hr.active {
+  border-top: 1px solid #eb8205;
+}
+
+.article .code-container {
+  position: relative;
+}
+
+.article .code-container .language-type {
+  font-size: 12px;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.article .language-type select {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  background-color: #eee;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  outline: none;
+  padding: 0 5px;
+}

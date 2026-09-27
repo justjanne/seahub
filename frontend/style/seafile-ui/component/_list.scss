@@ -1,0 +1,38 @@
+
+.list-inline-dots .list-inline-item + .list-inline-item:before {
+  content: "· ";
+  margin-left: -2px;
+  margin-right: 3px;
+}
+
+.list-separated-item {
+  padding: 1rem 0;
+}
+
+.list-separated-item:first-child {
+  padding-top: 0;
+}
+
+.list-separated-item:last-child {
+  padding-bottom: 0;
+}
+
+.list-separated-item + .list-separated-item {
+  border-top: 1px solid $border-color;
+}
+
+.list-group-item.active .icon {
+  color: inherit !important;
+}
+
+.list-group-transparent .list-group-item {
+  background: none;
+  border: 0;
+  border-radius: $border-radius;
+  padding: 0.5rem 1rem;
+}
+
+.list-group-transparent .list-group-item.active {
+  background: rgba($primary, 0.06);
+  font-weight: 600;
+}

@@ -197,7 +197,7 @@
   height: 24px;
   left: -8px;
   top: 2px;
-  background-color: #ff9800;
+  background-color: var(--bs-primary);
   border-radius: 2px;
   z-index: 0;
 }
@@ -459,7 +459,7 @@
   left: -8px;
   width: 4px;
   height: 24px;
-  background-color: #ff9800;
+  background-color: var(--bs-primary);
   border-radius: 2px;
   z-index: 0;
 }

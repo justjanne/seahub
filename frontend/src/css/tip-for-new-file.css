@@ -30,5 +30,5 @@
 .big-new-file-button:hover,
 .big-new-file-button:focus {
   border-color: #eb9205;
-  color: #ED7109;
+  color: var(--bs-accent-color);
 }

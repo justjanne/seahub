@@ -53,7 +53,7 @@
 }
 
 .btn-active[data-active=true]#saveButton {
-  color: #ED7109;
+  color: var(--bs-accent-color);
 }
 
 .sf-md-viewer-topbar .btn:focus,

@@ -1,0 +1,26 @@
+
+.alert {
+  font-size: 0.875rem;
+}
+
+.alert-icon {
+  padding-left: 3rem;
+}
+
+.alert-icon > i {
+  color: inherit !important;
+  font-size: 1rem;
+  left: 1rem;
+  position: absolute;
+  top: 1rem;
+}
+
+.alert-avatar {
+  padding-left: 3.75rem;
+}
+
+.alert-avatar .avatar {
+  left: 0.75rem;
+  position: absolute;
+  top: 0.5rem;
+}

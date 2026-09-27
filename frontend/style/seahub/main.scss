@@ -1,0 +1,673 @@
+/**
+ * depends on bootstrap
+ *
+ * html { box-sizing: border-box; }
+ * body { background: $white; }
+ * p { margin-top:0; margin-bottom:1rem; }
+ *
+ **/
+/**
+ * CONTENTS
+ *
+ * Font Icons
+ * icon-xx ...............Font Awesome 3.2.1 by Dave Gandy
+ * sf2-icon-xx ...........seafile-font2
+ *
+ * Reset
+ * tags ..................reset styles of tags
+ *
+ * Helper
+ * common class ..........common class
+ *
+ * UI Widgets(ui widgets)
+ * path
+ * btn-group
+ * paginator
+ * caret
+ * tabnav
+ * jquery tabs
+ * left-right-tabs
+ * side-tabnav
+ * (...)
+ * messages
+ * narrow-panel
+ * new-narrow-panel
+ * text-panel
+ * tab-tabs
+ * tab-popup
+ * op-confirm ()
+ * simplemodal
+ * ui-autocomplete ()
+ * article
+ * obv-btn
+ * sf-popover
+ * user-item
+ * sf-dropdown
+ * discussions/comments
+ * custom select2
+ * custom magnificPopup
+ *
+ * Container
+ * Container ......... common container styles
+ *
+ * Separate pages
+ *
+ */
+/*
+ * z-index:
+ *    sf-popover:  20
+ *
+ */
+
+
+@import "../../node_modules/bootstrap/scss/functions";
+@import "../_colors.scss";
+
+@import "_seafile-font2.scss";
+@import "_tags.scss";
+@import "_custom-scrollbar.scss";
+@import "_common.scss";
+@import "_input.scss";
+@import "_loading.scss";
+
+.op,
+.more {
+  font-weight: normal;
+  font-size: 12px;
+}
+
+.op {
+  font-size: 13px;
+  padding-right: 2px;
+}
+
+.op-target {
+  color: $accent-color;
+  word-wrap: break-word;
+}
+
+.op-icon {
+  font-size: 20px;
+  line-height: 1;
+  color: $secondary;
+  cursor: pointer;
+  margin-right: 3px;
+  vertical-align: middle;
+}
+
+.op-icon.sf2-x,
+.op-icon.sf2-x:hover {
+  color: #f89a68;
+}
+
+.op-icon.sf2-x:hover,
+.op-icon.sf2-x:focus {
+  text-decoration: underline;
+}
+
+.sf2-icon-edit {
+  font-size: 16px;
+  opacity: 0.7;
+}
+
+.sf2-icon-edit:hover {
+  opacity: 1;
+}
+
+a.op-icon:focus {
+  outline: none;
+  text-decoration: none;
+}
+
+.op-icon:hover {
+  /** for <a> **/
+  color: $secondary;
+  text-decoration: none;
+}
+
+.full-width-btn {
+  width: 100%;
+  padding: .5em 0;
+  background: #efefef;
+  border: 0;
+  color: $secondary;
+}
+
+.full-width-btn:hover {
+  color: #000;
+  background: #dfdfdf;
+}
+
+.no-deco,
+.no-deco:hover,
+.no-deco:focus {
+  text-decoration: none;
+}
+
+.input-disabled {
+  /* for type="password/text" etc*/
+  background: #ebebe4;
+}
+
+.btn-disabled {
+  /*for <input type="submit" />, <button>*/
+  color: #999;
+}
+
+.btn-disabled:hover,
+input.btn-disabled:hover {
+  /*for input*/
+  cursor: default;
+  background: #efefef;
+}
+
+.modalCloseImg {
+  background: transparent url('../img/bg.png') no-repeat scroll 0 0;
+}
+
+.add {
+  color: #909090;
+  margin-right: 3px;
+}
+
+.placeholder {
+  /*for ie */
+  color: #aaa;
+  line-height: 1.5;
+}
+
+input:-moz-placeholder,
+textarea:-moz-placeholder {
+  /* for FF */
+  color: #aaa;
+  line-height: 1.5;
+}
+
+::-webkit-input-placeholder {
+  /*for chrome, safari */
+  line-height: 1.5;
+}
+
+.avatar {
+  border-radius: 3px;
+}
+
+.avatar-circle {
+  border-radius: 1000px;
+}
+
+.empty-tips {
+  padding: 30px 40px;
+  background-color: #FAFAFA;
+  border: solid 1px #DDD;
+  border-radius: 3px;
+  box-shadow: inset 0 0 8px #EEE;
+  margin-top: 5.5em;
+}
+
+.ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.split {
+  border-left: 2px solid #888;
+  padding-left: 1em;
+  margin-left: 1em;
+}
+
+/**** btn with link styles ****/
+.sf-link-btn {
+  color: $accent-color;
+  border: none;
+  padding: 0;
+  background: none;
+}
+
+.sf-link-btn:focus,
+.sf-link-btn:hover {
+  color: $accent-color;
+  background: none;
+  text-decoration: underline;
+}
+
+/*******ui widgets**************/
+@import "_ui_path.scss";
+@import "_ui_paginator.scss";
+@import "_ui_caret.scss";
+@import "_ui_tabnav.scss";
+@import "_ui_jquery-tabs.scss";
+@import "_ui_left-right-tabs.scss";
+@import "_ui_side-tabnav.scss";
+@import "_ui_checkbox.scss";
+@import "_ui_messages.scss";
+@import "_ui_narrow-panel.scss";
+@import "_ui_new-narrow-panel.scss";
+@import "_ui_wide-panel.scss";
+@import "_ui_text-panel.scss";
+@import "_ui_tab-tabs.scss";
+@import "_ui_simplemodal.scss";
+@import "_ui_article.scss";
+@import "_ui_sf-popover.scss";
+@import "_ui_container.scss";
+@import "_ui_top-bar.scss";
+@import "_ui_header.scss";
+
+/*** separate pages ***/
+
+@import "_page_login.scss";
+@import "_page_myhome.scss";
+
+/* avatar */
+.avatar-op .avatar {
+  border-radius: 4px;
+  -moz-border-radius: 4px;
+}
+
+.group .avatar {
+  background: #fdfdfd;
+  border-radius: 1000px;
+}
+
+.avatar-op h3 {
+  border: none;
+  margin-bottom: 2px;
+}
+
+.avatar-op .upload-new-avatar-hd {
+  margin-top: 15px;
+}
+
+.path {
+  margin: 1.4em 0 0;
+}
+
+.access-notice {
+  margin: 0.8em 0 0.4em;
+}
+
+.file-audit-list-topbar .path,
+.commit-list-topbar .path,
+.repo-file-list-topbar .path {
+  font-size: 14px;
+  line-height: 25px;
+  margin: 0;
+}
+
+#repo-latest-commit .avatar {
+  vertical-align: middle;
+}
+
+#repo-latest-commit .time {
+  color: $secondary;
+  margin-left: 5px;
+}
+
+.commit-time {
+  color: var(--bs-body-color);
+  font-size: 13px;
+  font-weight: normal;
+  margin-top: 0em;
+}
+
+/* file upload */
+.fileupload-buttonbar .cancel {
+  margin-left: 5px;
+}
+
+.fileupload-progress {
+  margin-top: 5px;
+}
+
+.fileinput-button {
+  display: inline-block;
+  line-height: 19px;
+  position: relative;
+  overflow: hidden;
+}
+
+.fileinput-button .icon-plus {
+  font-size: 13px;
+  color: var(--bs-body-color);
+}
+
+.fileinput-button input {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  height: 27px;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  cursor: pointer;
+}
+
+.fileupload-table {
+  margin-bottom: 0;
+  table-layout: fixed;
+}
+
+.fileupload-table .name,
+.fileupload-table .error {
+  padding-left: 7px;
+  margin: 0;
+}
+
+.template-upload .btn {
+  background: transparent;
+  border: none;
+  color: #e83;
+}
+
+.template-upload .btn {
+  font-size: 1em;
+  padding: 0;
+}
+
+.ui-progressbar,
+.progress {
+  background-color: #F7F7F7;
+  background-image: linear-gradient(to bottom, #F5F5F5, #F9F9F9);
+  background-repeat: repeat-x;
+  border-radius: 4px 4px 4px 4px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1) inset;
+  height: 1em;
+  overflow: hidden;
+}
+
+.template-upload .progress {
+  width: 90%;
+}
+
+.ui-progressbar-value,
+.progress .bar {
+  background: #e83;
+  height: 100%;
+}
+
+.fade {
+  opacity: 0;
+  visibility: hidden;
+  /*for ie*/
+}
+
+.fade.in {
+  opacity: 1;
+  visibility: visible;
+  /*for ie*/
+}
+
+#upload-file-form .tip {
+  padding-left: 1.5em;
+  padding-left: 1.9em;
+  margin-top: 5px;
+}
+
+/* repo-history */
+#back {
+  margin-top: 3px;
+}
+
+.file-audit-list,
+.commit-list {
+  margin-bottom: 20px;
+}
+
+.file-audit-list .user,
+.commit-list .time {
+  padding-left: 10px;
+}
+
+.file-audit-list .avatar,
+.commit-list .avatar {
+  border-radius: 2px;
+}
+
+.file-access-hd,
+.repo-trash-hd,
+.repo-snapshot-hd {
+  margin-bottom: 10px;
+}
+
+.repo-snapshot-commit {
+  margin-bottom: 6px;
+}
+
+#online-gc {
+  margin-left: 5px;
+}
+
+#mods-enable-form {
+  width: 266px;
+}
+
+.ellipsis-op-target {
+  display: inline-block;
+  vertical-align: bottom;
+}
+
+#confirm-popup .op-target {
+  max-width: 200px;
+}
+
+/*file upload*/
+#upload-file-form .files-add input {
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  margin: 0;
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+
+#upload-file-form .MultiFile-label {
+  padding: 4px 0;
+  border-bottom: 1px solid #ebebeb;
+}
+
+#upload-file-form .MultiFile-remove {
+  padding: 0 4px;
+  color: #000;
+  font-weight: bold;
+  border: 1px solid var(--bs-border-secondary-color);
+}
+
+#upload-file-form .MultiFile-remove:hover {
+  text-decoration: none;
+}
+
+.upload-progress-con,
+.upload-cancel {
+  margin-top: .8em;
+}
+
+.upload-progress-bar {
+  /*for progress container*/
+  height: 1em;
+  margin-top: -3px;
+}
+
+.upload-progress-bar .ui-progressbar-value {
+  /*for progress*/
+  background: #e83;
+  margin: 0;
+}
+
+#text-diff-output {
+  padding: 3px;
+  background: #dedede;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  margin-top: 12px;
+}
+
+.user-role-select,
+.user-status-select {
+  position: relative;
+  /*for long text in other lang in 'share admin'*/
+  padding: 3px 2px;
+  background: $white;
+  border: 1px solid #ddd;
+  border-radius: 2px;
+}
+
+/* text file diff */
+.file-modification-hd .modifier,
+.file-modification-hd .time {
+  font-weight: normal;
+  font-size: 13px;
+  color: $secondary;
+}
+
+.file-modification-hd a {
+  margin: 0 3px 0 5px;
+}
+
+.file-modification-hd .avatar,
+.file-modification-meta-info .span {
+  vertical-align: middle;
+}
+
+.file-modification-hd .time {
+  margin-left: 5px;
+}
+
+#text-diff-output {
+  font-size: 14px;
+  font-family: monospace;
+}
+
+#text-diff-output .blank-file,
+#text-diff-output .diff-con {
+  background: $white;
+  border: 1px solid #ccc;
+  margin: 0;
+}
+
+#text-diff-output .blank-file {
+  padding: 2em 1em;
+}
+
+#text-diff-output th {
+  text-align: center;
+}
+
+#text-diff-output td {
+  font-size: 12px;
+  word-wrap: break-word;
+  padding: 2px 3px;
+  border-bottom: none;
+}
+
+#text-diff-output .diff-header {
+  text-align: right;
+  vertical-align: top;
+  /* make the line number stay there even its right td gets multi lines of content */
+  background-color: #ebebeb;
+  border-right: 1px solid #eee;
+}
+
+.diff-add {
+  color: #080;
+}
+
+.diff-sub {
+  color: #c00;
+}
+
+.diff-chg {
+  color: #c3f;
+}
+
+@import "_page_search.scss";
+
+.help-con {
+  padding: 20px;
+}
+
+.help-con img {
+  max-width: 80%;
+  margin: 5px 0;
+}
+
+#right-panel.help-con .hd {
+  font-weight: normal;
+  margin-bottom: 15px;
+}
+
+.go-back {
+  position: absolute;
+  left: -41px;
+  top: 9px;
+  padding: 0 5px;
+  font-size: 25px;
+  color: #ccc;
+}
+
+.go-back:hover {
+  color: #f93;
+  text-decoration: none;
+}
+
+#set-quota-form {
+  min-width: 255px;
+}
+
+#set-quota-form .input {
+  width: 180px;
+}
+
+@import "_page_user-profile.scss";
+@import "_page_link-audit.scss";
+@import "_page_mfa.scss";
+
+/* terms & conditions */
+#tc-content {
+  padding-top: 0;
+  padding-left: 0;
+}
+
+#email-audit-form .email-input {
+  width: 172px;
+}
+
+#email-audit-form .get-code-btn {
+  width: 102px;
+}
+
+.registration-form-popover {
+  border: 1px solid #ddd;
+  padding: 12px;
+  width: 250px;
+  filter: none;
+  color: var(--bs-body-color);
+  font-size: 14px;
+}
+
+/* overwrite inline style */
+.registration-form-popover.mobile {
+  right: 0 !important;
+}
+
+.popover.registration-form-popover .popover-head {
+  padding-bottom: 4px;
+}
+
+.popover.registration-form-popover .popover-content {
+  padding-top: 8px;
+  color: $secondary;
+  font-size: 12px;
+}
+
+.popover.registration-form-popover .progress {
+  border-radius: 0;
+  height: 4px;
+  background-color: $white;
+}
+
+.popover.registration-form-popover .progress-bar {
+  width: 25%;
+  margin-right: 2px;
+  background-color: #DBDBDB;
+}

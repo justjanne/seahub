@@ -90,7 +90,7 @@
 
 
 .path-toolbar .toolbar-item a:hover {
-  color: #ED7109;
+  color: var(--bs-accent-color);
   text-decoration:none;
 }
 /* end path toolbar */

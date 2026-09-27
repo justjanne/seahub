@@ -1,0 +1,41 @@
+
+/**** narrow-panel ****/
+.narrow-panel {
+  width: 320px;
+  min-height: 15em;
+  padding: 30px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin: 5em auto 0;
+}
+
+.narrow-panel h2,
+.narrow-panel h3 {
+  margin: 0 0 0.9em;
+  border-bottom: 1px solid #ddd;
+}
+
+.narrow-panel h2 {
+  font-size: 1.3em;
+}
+
+.narrow-panel input {
+  width: 312px;
+  padding: 2px 3px;
+  border-radius: 2px;
+  margin: 0 0 0.6em;
+}
+
+.narrow-panel input.submit {
+  width: auto;
+  /*for fr,de etc*/
+  height: 28px;
+  padding: 4px 5px;
+  margin: 8px 0 0;
+}
+
+.narrow-panel .note {
+  color: $secondary;
+  font-size: 11px;
+  margin: 2px 0 5px;
+}

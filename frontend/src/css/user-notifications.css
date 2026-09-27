@@ -57,7 +57,7 @@
   height: 26px;
   left: -5px;
   top: 2px;
-  background-color: #ff9800;
+  background-color: var(--bs-primary);
   border-radius: 2px;
   z-index: 2;
 }

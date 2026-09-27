@@ -1,0 +1,129 @@
+
+/* top-bar */
+#logout-icon {
+  margin: 5px 0 0 25px;
+  font-size: 22px;
+  line-height: 1;
+  color: #999;
+}
+
+@media (max-width: 390px) {
+  #logout-icon {
+    margin-left: 10px;
+  }
+}
+
+#account {
+  position: relative;
+  margin-left: 8px;
+}
+
+#account .avatar {
+  vertical-align: middle;
+  border-radius: 1000px;
+}
+
+#my-info {
+  display: inline-block;
+  color: #d6d6d6;
+}
+
+@media (max-width:767px) {
+  #account {
+    margin: 5px 0 0 10px;
+  }
+
+  .account-toggle {
+    font-size: 22px;
+    line-height: 1;
+    color: #999;
+    margin-top: 8px;
+  }
+}
+
+.account-popup .avatar {
+  float: left;
+}
+
+.account-popup .txt {
+  margin-left: 45px;
+  line-height: 36px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.account-popup {
+  right: 0;
+  top: 52px;
+  font-size: 13px;
+}
+
+.account-popup .outer-caret {
+  top: -10px;
+  right: 16px;
+}
+
+.account-popup .sf-popover-con {
+  padding: 0;
+}
+
+.account-popup .item {
+  display: block;
+  padding: 8px 18px;
+  border-bottom: 1px solid #ddd;
+}
+
+.account-popup a.item {
+  color: var(--bs-body-color);
+  font-weight: normal;
+}
+
+.account-popup a.item:hover {
+  background: #fafafa;
+  text-decoration: none;
+}
+
+.account-popup .space-traffic {
+  padding: 7px 0;
+}
+
+.account-popup .space-traffic>p {
+  margin-bottom: 6px;
+  font-size: 12px;
+}
+
+#account .manage {
+  position: absolute;
+  left: 60px;
+  top: -16px;
+}
+
+#account .manage .a:hover {
+  text-decoration: none;
+}
+
+#lang-context-selector {
+  position: absolute;
+  top: 23px;
+  white-space: nowrap;
+  width: auto;
+  min-width: 200px;
+}
+
+#lang-context-selector .sf-popover-con {
+  padding: 10px;
+}
+
+#lang-context-selector a {
+  color: #000;
+  display: block;
+  padding: 1px 5px;
+  font-weight: normal;
+  line-height: 1.5;
+}
+
+#lang-context-selector a:hover {
+  background: #eee;
+  text-decoration: none;
+}

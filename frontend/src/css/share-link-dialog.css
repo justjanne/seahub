@@ -54,7 +54,7 @@
   content: '';
   display: block;
   width: 4px;
-  background-color: #ff9800;
+  background-color: var(--bs-primary);
   border-radius: 2px;
   position: absolute;
   top: 4px;
@@ -100,7 +100,7 @@
 #share-link-panel .link-authenticated-op:hover {
   background: transparent;
   text-decoration: underline;
-  color: #ff9800;
+  color: var(--bs-primary);
 }
 
 .share-dialog-content label {

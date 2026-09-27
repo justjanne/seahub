@@ -74,7 +74,7 @@
 }
 
 .metadata-gallery-image-item-selected {
-  border: 2px solid #ff9800;
+  border: 2px solid var(--bs-primary);
 }
 
 .metadata-gallery-grid-image {

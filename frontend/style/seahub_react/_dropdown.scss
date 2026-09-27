@@ -1,0 +1,55 @@
+
+/* dropdown-menu style */
+.dropdown {
+  vertical-align: middle;
+}
+
+.dropdown-menu {
+  min-width: 200px;
+  box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-item {
+  height: 32px;
+  padding: 0.25rem 1rem;
+  line-height: 1.5;
+  cursor: pointer;
+  color: var(--bs-body-color);
+  font-size: 14px;
+}
+
+.dropdown-item .sf3-font,
+.dropdown-item .sf2-icon-tick {
+  color: $secondary;
+}
+
+[data-bs-theme="dark"] .dropdown-item .sf3-font,
+[data-bs-theme="dark"] .dropdown-item .sf2-icon-tick {
+  color: var(--bs-icon-color);
+}
+[data-bs-theme="dark"] .dropdown-item .sf3-font-down {
+  color: var(--bs-body-secondary-color);
+}
+
+.btn-secondary.dropdown-toggle.dropdown-item {
+  line-height: 1.5;
+}
+
+.show>.btn-secondary.dropdown-toggle.dropdown-item {
+  color: $white;
+  background-color: $dropdown-item-hover-bg;
+}
+
+.show>.btn-secondary.dropdown-toggle.dropdown-item .dropdown-item-icon,
+.dropdown-item:hover .sf3-font,
+.dropdown-item:focus .sf3-font,
+.dropdown-item:hover .dropdown-item-icon,
+.dropdown-item:hover .btn .dropdown-item-icon,
+.dropdown-item:focus .dropdown-item-icon,
+.dropdown-item:focus .btn .dropdown-item-icon,
+.dropdown-item:hover .sf2-icon-tick,
+.dropdown-item:focus .sf2-icon-tick,
+.dropdown-item:hover .metadata-view-icon,
+.dropdown-item:focus .metadata-view-icon {
+  color: $white;
+}

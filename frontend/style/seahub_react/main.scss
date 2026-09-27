@@ -1,0 +1,372 @@
+/**
+ * Font Icons
+ * sf2-icon-xx ...........seafile-font2
+ *
+ * Helper
+ * common class ..........common class
+ * UI Widgets(ui widgets)
+ * topbar button
+ * caret
+ * loading!!
+ * popover
+ * op-icon!!
+ * account!!
+ * quota!!
+ * nav, nav-pills
+ * side-panel!!
+ * about-dialog
+ * notifications
+ * sf-popover!!
+ * go-back
+ * top-logo!!
+ * base-table!!
+ * table-item rename-component!!
+ * more-btn
+ * dropdown-menu!!
+ * empty-tip
+ * file-tag!!
+ * mobile-menu!!
+ */
+
+@import "../../node_modules/bootstrap/scss/functions";
+@import "../_colors.scss";
+
+@import "_seafile-font2.scss";
+@import "_common-helper.scss";
+@import "_topbar-button.scss";
+
+
+.sf-border-bottom {
+  border-bottom: 1px solid var(--bs-border-secondary-color);
+}
+
+.vh {
+  visibility: hidden;
+}
+
+.pl10 {
+  padding-left: 10px;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.tr-drag-effect {
+  /* just for drag&drop item */
+  background-image: url('../img/grippy_large.png');
+  background-repeat: no-repeat;
+  background-position: 0px;
+}
+
+.text-decoration-underline {
+  text-decoration: underline !important;
+}
+
+.sf-dropdown-toggle {
+  margin-left: 0.5rem;
+  vertical-align: middle;
+  font-style: normal;
+  font-size: 1rem;
+  line-height: 1;
+  cursor: pointer;
+  color: #999;
+}
+
+.sf-dropdown-toggle:focus,
+.sf-dropdown-toggle:hover {
+  color: var(--bs-body-color);
+}
+
+.user-select-none {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  -khtml-user-select: none;
+  user-select: none;
+}
+
+.dialog-list-container {
+  /* for dialog containing list */
+  min-height: 20rem;
+  max-height: 25rem;
+  overflow: auto;
+}
+
+.link-dropdown-container {
+  padding: 0;
+  text-align: center;
+}
+
+.link-dropdown-item {
+  display: block;
+  padding: 0.25rem 1.5rem;
+  color: $text-muted-dark;
+}
+
+.link-dropdown-item:hover {
+  color: $white;
+  text-decoration: none;
+}
+
+.link-dropdown-item:active {
+  color: $white;
+}
+
+.side-nav-toggle {
+  /* just for control side-panel */
+  margin-right: 0.9375rem;
+  font-size: 1.5rem;
+  color: #999;
+  cursor: pointer;
+}
+
+.op-bar-btn {
+  border-color: #ccc;
+  border-radius: 2px;
+  height: 30px;
+  line-height: 28px;
+  font-weight: normal;
+  padding: 0 0.5rem;
+  min-width: 55px;
+}
+
+/* for 'extra small' */
+@media (max-width: 575px) {
+  .w-xs-200 {
+    width: 200%;
+  }
+
+  .w-xs-250 {
+    width: 250%;
+  }
+}
+
+@import "_loading.scss";
+@import "_op-icon.scss";
+@import "_account.scss";
+@import "_quota.scss";
+
+@media (max-width:767px) {
+  .cur-view-toolbar .mobile-icon {
+    color: #999;
+    line-height: 1.63;
+    font-size: 22px;
+    margin-right: 8px;
+  }
+}
+
+@import "_sf-nav-link.scss";
+@import "_side-panel.scss";
+
+/* about dialog */
+.about-content {
+  min-width: 280px;
+  padding-top: 20px;
+  text-align: center;
+}
+
+@import "_sf-popover.scss";
+@import "_basic-layout.scss";
+@import "_top-logo.scss";
+@import "_path-navigation.scss";
+@import "_table.scss";
+@import "_dropdown.scss";
+
+.err-tip {
+  margin: 2rem auto;
+  padding: 30px 40px;
+  font-size: 1rem;
+  color: $secondary;
+  text-align: center;
+}
+
+.err-message {
+  margin-left: 0.5rem;
+  color: red;
+}
+
+@import "_file-tag.scss";
+
+/* react select-module */
+.select-module {
+  font-size: 1rem;
+}
+
+.select-module.select-module-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.select-module.select-module-name {
+  margin-left: 0.5rem;
+}
+
+@import "_thumbnail.scss";
+@import "_mobile-menu.scss";
+
+.file-view-tip {
+  min-height: 130px;
+  padding: 30px 10px 10px;
+  width: calc(100% - 40px);
+  max-width: 950px;
+  margin: 0 auto;
+  background: $white;
+  border: 1px solid #ccc;
+  box-shadow: 0 0 6px #ccc;
+  text-align: center;
+}
+
+@import "_wiki-file-content.scss";
+
+.modal-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.modal-close {
+  color: #000;
+  opacity: 0.5;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.modal-close:hover {
+  opacity: 0.75;
+}
+
+.word-break-all {
+  word-break: break-all;
+}
+
+.side-panel .nav .nav-item .nav-link.active {
+  color: var(--bs-body-color);
+  text-decoration: none;
+  border-bottom: none;
+  z-index: 1;
+}
+
+.side-panel .nav-pills .nav-item .nav-link:hover {
+  background-color: var(--bs-nav-hover-bg);
+}
+
+.side-panel .nav-pills .nav-item .nav-link.active {
+  background-color: var(--bs-nav-active-bg);
+  color: var(--bs-body-color);
+  border: none;
+}
+
+.side-panel .nav-pills .nav-item .nav-link.active:hover {
+  background-color: var(--bs-nav-hover-bg);
+}
+
+.side-panel .side-nav-con {
+  padding: 0.75rem 1rem;
+}
+
+.side-panel .side-nav-con .active .sharp,
+.side-panel .side-nav-con .active .nav-text {
+  font-weight: normal;
+}
+
+.side-panel .side-nav-con .active .seafile-multicolor-icon,
+.side-panel .side-nav-con .active [class^="sf2-icon-"],
+.side-panel .side-nav-con .active [class^="sf3-font-"],
+.side-panel .side-nav-con .active .nav-icon,
+.side-panel .side-nav-con .active .sharp {
+  color: var(--bs-icon-tertiary-color);
+}
+
+.side-panel .side-nav .side-nav-con .nav-item {
+  position: relative;
+  background-color: var(--bs-body-bg);
+}
+
+.side-panel .side-nav .side-nav-con .nav-item.active::before {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 4px;
+  height: 30px;
+  left: -8px;
+  top: 4px;
+  background-color: $primary;
+  border-radius: 2px;
+  z-index: 2;
+}
+
+.side-panel .side-nav .side-nav-con #share-admin-nav .nav-item.active::before,
+.side-panel .side-nav .side-nav-con #files-sub-nav .nav-item.active::before {
+  top: 2px;
+  height: 24px;
+}
+
+.side-panel .side-nav-con .sub-nav {
+  overflow: visible;
+  width: 100%;
+}
+
+.side-panel .side-nav-con .nav .nav-item .nav-link {
+  border: none;
+}
+
+.rotate-90 {
+  transform: rotate(90deg) !important;
+}
+
+.rotate-180 {
+  transform: rotate(180deg) !important;
+}
+
+.rotate-270 {
+  transform: rotate(270deg) !important;
+}
+
+/* All triangle icon use 12px */
+.sf3-font-down {
+  font-size: 12px !important;
+}
+[data-bs-theme=dark] .sf3-font-down {
+  color: rgba(255, 255, 255, .5) !important;
+}
+
+.visually-hidden {
+  display: none !important;
+}
+
+.form-label {
+  display: inline-block;
+  margin-bottom: .5rem;
+  font-weight: 400;
+  font-size: 15px;
+}
+
+.form-control {
+  background-color: transparent;
+  border: 1px solid var(--bs-border-color);
+  color: var(--bs-body-color);
+}
+
+.form-control:focus {
+  background-color: var(--bs-body-bg);
+  color: var(--bs-body-color);
+}
+
+.form-control:disabled {
+  background-color: rgba(255, 255, 255, .02);
+}
+
+.input-group .input-group-text:not(:first-child) {
+  border-left: none;
+}
+
+.custom-switch-description {
+  color: var(--bs-body-color);
+}
+
+.custom-switch-input:checked ~ .custom-switch-description {
+  color: var(--bs-body-color);
+}
+
+@import "_darkmode.scss";

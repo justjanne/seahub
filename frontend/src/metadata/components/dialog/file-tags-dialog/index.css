@@ -72,5 +72,5 @@
 
 .sf-file-new-tag.selected,
 .sf-file-exit-tag.selected {
-  border-color: #FF9800;
+  border-color: var(--bs-primary);
 }

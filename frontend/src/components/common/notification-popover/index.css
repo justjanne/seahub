@@ -188,7 +188,7 @@
 }
 
 .notification-container .notification-body .nav .nav-item .nav-link.active {
-  color: #ED7109;
+  color: var(--bs-accent-color);
 }
 
 .notification-container .nav-indicator-container::before {

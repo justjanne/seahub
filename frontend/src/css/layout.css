@@ -350,7 +350,7 @@ img[src=""],img:not([src]) { /* for first loading img*/
   bottom: -2px;
   height: 2px;
   width: var(--indicator-width);
-  background: #ED7109;
+  background: var(--bs-accent-color);
   border-radius: 2px;
   transition: transform 0.3s ease;
   transform: translateX(var(--indicator-offset));

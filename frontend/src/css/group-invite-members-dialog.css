@@ -30,8 +30,8 @@
 }
 
 .invite-link-item .delete-link-btn {
-  border-color: #ff9800;
-  color: #ff9800;
+  border-color: var(--bs-primary);
+  color: var(--bs-primary);
   font-size: 16px;
   padding: 0;
 }

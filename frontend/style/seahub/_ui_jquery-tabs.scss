@@ -1,0 +1,15 @@
+/**** jquery tabs ****/
+.ui-tabs {
+  position: relative;
+  padding: .2em;
+  zoom: 1;
+}
+
+.ui-tabs .ui-tabs-panel {
+  display: block;
+  padding: 1em 1.4em;
+}
+
+.ui-tabs .ui-tabs-hide {
+  display: none;
+}

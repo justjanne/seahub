@@ -1,0 +1,119 @@
+.text-wrap table {
+  @extend .table, .table-bordered;
+}
+
+.table thead th, .text-wrap table thead th {
+  border-bottom-width: 1px;
+  border-top: 0;
+  padding-bottom: 0.5rem;
+  padding-top: 0.5rem;
+}
+
+.table th, .text-wrap table th {
+  color: $text-muted;
+  font-size: 0.875rem;
+  font-weight: 400;
+}
+
+.table-md td, .table-md th {
+  padding: 0.5rem;
+}
+
+.table-vcenter td, .table-vcenter th {
+  vertical-align: middle;
+}
+
+.table-center td, .table-center th {
+  text-align: center;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+  background: transparent;
+}
+
+.table-striped tbody tr:nth-of-type(2n) {
+  background-color: rgba(0, 0, 0, 0.02);
+}
+
+.table-calendar {
+  margin: 0 0 0.75rem;
+}
+
+.table-calendar td, .table-calendar th {
+  border: 0;
+  line-height: 2.5rem;
+  padding: 0 !important;
+  text-align: center;
+  width: 14.2857142857%;
+}
+
+.table-calendar td {
+  border-top: 0;
+}
+
+.table-calendar-link {
+  background: $gray-100;
+  border-radius: $border-radius;
+  color: $body-color;
+  display: inline-block;
+  font-weight: 600;
+  line-height: 2rem;
+  min-width: calc(2rem + 2px);
+  position: relative;
+  transition: background 0.3s, color 0.3s;
+}
+
+.table-calendar-link:before {
+  background: $primary;
+  border-radius: 50px;
+  content: "";
+  height: 4px;
+  left: 0.25rem;
+  position: absolute;
+  top: 0.25rem;
+  width: 4px;
+}
+
+.table-calendar-link:hover {
+  background: $primary;
+  color: $white;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.table-calendar-link:hover:before {
+  background: $white;
+}
+
+.table-header {
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.table-header:hover {
+  color: $body-color !important;
+}
+
+.table-header:after {
+  content: "\f0dc";
+  display: inline-block;
+  font-family: FontAwesome;
+  font-size: 0.75rem;
+  margin-left: 0.5rem;
+}
+
+.table-header-asc {
+  color: $body-color !important;
+}
+
+.table-header-asc:after {
+  content: "\f0de";
+}
+
+.table-header-desc {
+  color: $body-color !important;
+}
+
+.table-header-desc:after {
+  content: "\f0dd";
+}

@@ -2,6 +2,9 @@ PROJECT=seahub
 
 dist: locale statici18n collectstatic
 
+makemessages-js:
+	django-admin makemessages -d djangojs -i "thirdpart" -i "node_modules" -i "media" -i "static/scripts/dist" -i "static/scripts/lib" -i "tests" -i "tools" -i "tagging" -i "static/scripts/i18n" -i "frontend/build" -i "frontend/config" -i "frontend/scripts" --verbosity 2 --all
+
 locale:
 	@echo "--> Compile locales"
 	django-admin compilemessages
@@ -28,4 +31,4 @@ clean:
 	rm -rf static/scripts/dist 2> /dev/null
 	@echo ""
 
-.PHONY: develop setup-git dist locale statici18n collectstatic compressstatic clean
+.PHONY: develop setup-git dist locale statici18n collectstatic compressstatic clean makemessages-js

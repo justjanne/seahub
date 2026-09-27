@@ -68,7 +68,7 @@
 }
 
 .old-history-main .file-name {
-  color: #ed7109;
+  color: var(--bs-accent-color);
   word-wrap: break-word;
 } 
 
@@ -86,7 +86,7 @@
 
 .old-history-main .commit-list .username {
   vertical-align: middle;
-  color: #ED7109;
+  color: var(--bs-accent-color);
   text-decoration: none;
   font-weight: bold;
 }

@@ -40,7 +40,7 @@
 }
 
 .wiki-card-item .wiki-card-item-top .sf3-font-wiki.sf3-font {
-  color: #FF9800;
+  color: var(--bs-primary);
   font-size: 24px;
   height: 24px;
   line-height: 24px;

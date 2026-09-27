@@ -1,0 +1,35 @@
+
+/* file-tag */
+.tag-list {
+  position: relative;
+  justify-content: flex-end;
+}
+
+.tag-list .file-tag {
+  cursor: pointer;
+}
+
+.tag-list .file-tag:last-child {
+  margin-right: 0;
+}
+
+.tag-list-stacked .file-tag {
+  margin-right: -0.5rem;
+  border: 0.125rem solid $white;
+  cursor: pointer;
+}
+
+.file-tag {
+  position: relative;
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+}
+
+.dirent-item.tag-list {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  min-height: 1rem;
+}

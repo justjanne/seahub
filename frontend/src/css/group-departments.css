@@ -74,7 +74,7 @@
   content: '';
   display: block;
   width: 4px;
-  background-color: #ff9800;
+  background-color: var(--bs-primary);
   border-radius: 2px;
   position: absolute;
   top: 4px;
@@ -97,7 +97,7 @@
 .department-dialog-member-head .select-all {
   cursor: pointer;
   font-size: 0.8125rem;
-  color: #ED7109;
+  color: var(--bs-accent-color);
 }
 
 .department-dialog-member-head .select-all-disable {

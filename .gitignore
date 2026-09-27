@@ -23,8 +23,11 @@ setenv*.sh
 
 pylintrc
 .DS_Store
+media/assets
 media/CACHE
 media/custom
+
+*.mo
 
 # media/avatars
 media/avatars/*

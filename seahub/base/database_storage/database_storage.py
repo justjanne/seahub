@@ -148,7 +148,7 @@ class DatabaseStorage(Storage):
         if row is None:
             return None
 
-        inMemFile = io.BytesIO(base64.b64decode(row[0]))
+        inMemFile = io.BytesIO(base64.b64decode(row[0].encode("ascii")))
         inMemFile.name = name
         inMemFile.mode = mode
 
@@ -164,7 +164,7 @@ class DatabaseStorage(Storage):
         binary = content.read()
 
         size = len(binary)
-        encoded = base64.b64encode(binary)
+        encoded = base64.b64encode(binary).decode("ascii")
         mtime = value_to_db_datetime(datetime.today())
 
         with transaction.atomic(using='default'):

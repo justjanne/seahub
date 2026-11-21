@@ -1,10 +1,5 @@
 PROJECT=seahub
 
-develop: setup-git
-
-setup-git:
-	cd .git/hooks && ln -sf ../../hooks/* ./
-
 dist: locale statici18n collectstatic
 
 locale:
@@ -31,11 +26,6 @@ clean:
 	rm -rf media/CACHE 2> /dev/null
 	rm -rf media/assets 2> /dev/null
 	rm -rf static/scripts/dist 2> /dev/null
-	@echo ""
-
-cleanpyc:
-	@echo '--> Cleaning .pyc files'
-	find . -name \*.pyc -exec rm -f {} \;
 	@echo ""
 
 .PHONY: develop setup-git dist locale statici18n collectstatic compressstatic clean

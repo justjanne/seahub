@@ -106,6 +106,7 @@ class DatabaseStorage(Storage):
             'data_column',
             'size_column',
             'mtime_column',
+            'data_is_binary',
         ]
         for key in required_keys:
             if key not in options:
@@ -126,6 +127,7 @@ class DatabaseStorage(Storage):
         self.data_column = options.get('data_column', 'data')
         self.size_column = options.get('size_column', 'size')
         self.mtime_column = options.get('mtime_column', 'mtime')
+        self.data_is_binary = options.get('data_is_binary', False)
 
     def _open(self, name, mode='rb'):
         """
@@ -139,16 +141,16 @@ class DatabaseStorage(Storage):
 
         name_md5 = hashlib.md5(name.encode('utf-8')).hexdigest()
 
-        query = 'SELECT %(data_column)s FROM %(table)s ' + \
-                'WHERE %(name_md5_column)s = %%s'
-        query %= self.__dict__
+        query = f'SELECT {self.data_column} FROM {self.table} WHERE {self.name_md5_column} = %s'
         cursor = connection.cursor()
         cursor.execute(query, [name_md5])
         row = cursor.fetchone()
         if row is None:
             return None
 
-        inMemFile = io.BytesIO(base64.b64decode(row[0].encode("ascii")))
+        content = row[0] if self.data_is_binary else base64.b64decode(row[0].encode("ascii"))
+
+        inMemFile = io.BytesIO(content)
         inMemFile.name = name
         inMemFile.mode = mode
 
@@ -164,30 +166,24 @@ class DatabaseStorage(Storage):
         binary = content.read()
 
         size = len(binary)
-        encoded = base64.b64encode(binary).decode("ascii")
         mtime = value_to_db_datetime(datetime.today())
+
+        content = binary if self.data_is_binary else base64.b64encode(binary).decode("ascii")
 
         with transaction.atomic(using='default'):
             cursor = connection.cursor()
             if self.exists(name):
-                query = 'UPDATE %(table)s SET %(data_column)s = %%s, ' + \
-                        '%(size_column)s = %%s, %(mtime_column)s = %%s ' + \
-                        'WHERE %(name_md5_column)s = %%s'
-                query %= self.__dict__
-                cursor.execute(query, [encoded, size, mtime, name])
+                query = f'UPDATE {self.table} SET {self.data_column} = %s, {self.size_column} = %s, {self.mtime_column} = %s WHERE {self.name_md5_column} = %s'
+                cursor.execute(query, [content, size, mtime, name])
             else:
-                query = 'INSERT INTO %(table)s (%(name_column)s, ' + \
-                    '%(name_md5_column)s, %(data_column)s, %(size_column)s, '+ \
-                    '%(mtime_column)s) VALUES (%%s, %%s, %%s, %%s, %%s)'
-                query %= self.__dict__
-                cursor.execute(query, (name, name_md5, encoded, size, mtime))
+                query = f'INSERT INTO {self.table} ({self.name_column}, {self.name_md5_column}, {self.data_column}, {self.size_column}, {self.mtime_column}) VALUES (%s, %s, %s, %s, %s)'
+                cursor.execute(query, (name, name_md5, content, size, mtime))
 
         return name
 
     def exists(self, name):
         name_md5 = hashlib.md5(name.encode('utf-8')).hexdigest()
-        query = 'SELECT COUNT(*) FROM %(table)s WHERE %(name_md5_column)s = %%s'
-        query %= self.__dict__
+        query = f'SELECT COUNT(*) FROM {self.table} WHERE {self.name_md5_column} = %s'
         cursor = connection.cursor()
         cursor.execute(query, [name_md5])
         row = cursor.fetchone()
@@ -197,8 +193,7 @@ class DatabaseStorage(Storage):
         if self.exists(name):
             with transaction.atomic(using='default'):
                 name_md5 = hashlib.md5(name.encode('utf-8')).hexdigest()
-                query = 'DELETE FROM %(table)s WHERE %(name_md5_column)s = %%s'
-                query %= self.__dict__
+                query = f'DELETE FROM {self.table} WHERE {self.name_md5_column} = %s'
                 connection.cursor().execute(query, [name_md5])
 
     def path(self, name):
@@ -213,8 +208,7 @@ class DatabaseStorage(Storage):
     def size(self, name):
         "Get the size of the given filename or raise ObjectDoesNotExist."
         name_md5 = hashlib.md5(name.encode('utf-8')).hexdigest()
-        query = 'SELECT %(size_column)s FROM %(table)s ' + \
-                'WHERE %(name_md5_column)s = %%s'
+        query = f'SELECT {self.size_column} FROM {self.table} WHERE {self.name_md5_column} = %s'
         query %= self.__dict__
         cursor = connection.cursor()
         cursor.execute(query, [name_md5])
@@ -227,15 +221,12 @@ class DatabaseStorage(Storage):
     def modified_time(self, name):
         "Get the modified time of the given filename or raise ObjectDoesNotExist."
         name_md5 = hashlib.md5(name.encode('utf-8')).hexdigest()
-        query = 'SELECT %(mtime_column)s FROM %(table)s ' + \
-                'WHERE %(name_md5_column)s = %%s'
-        query %= self.__dict__
+        query = f'SELECT {self.mtime_column} FROM {self.table} WHERE {self.name_md5_column} = %s'
         cursor = connection.cursor()
         cursor.execute(query, [name_md5])
         row = cursor.fetchone()
         if not row:
-            raise ObjectDoesNotExist(
-                "DatabaseStorage file not found: %s" % name)
-        
+            raise ObjectDoesNotExist("DatabaseStorage file not found: %s" % name)
+
         return row[0]
     

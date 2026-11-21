@@ -6,9 +6,9 @@ from django.utils.module_loading import import_string
 from urllib.parse import quote
 
 from seahub.base.accounts import User
-from seahub.avatar.settings import AVATAR_DEFAULT_URL, AVATAR_CACHE_TIMEOUT,\
+from seahub.avatar.settings import AVATAR_DEFAULT_URL, AVATAR_CACHE_TIMEOUT, \
     AVATAR_DEFAULT_SIZE, AVATAR_DEFAULT_NON_REGISTERED_URL, \
-    AUTO_GENERATE_GROUP_AVATAR_SIZES, AVATAR_FILE_STORAGE
+    AUTO_GENERATE_GROUP_AVATAR_SIZES, AVATAR_FILE_STORAGE, AVATAR_IS_BINARY
 
 cached_funcs = set()
 
@@ -128,5 +128,6 @@ def get_avatar_file_storage():
             'name_column': 'filename',
             'data_column': 'data',
             'size_column': 'size',
+            'data_is_binary': AVATAR_IS_BINARY,
             }
         return get_storage_class(AVATAR_FILE_STORAGE)(options=dbs_options)

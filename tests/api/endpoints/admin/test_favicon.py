@@ -31,7 +31,7 @@ class AdminFaviconTest(BaseTestCase):
         # update user avatar
         logo_url = reverse('api-v2.1-admin-favicon')
         logo_url = urljoin(BASE_URL, logo_url)
-        logo_file = os.path.join(os.getcwd(), 'media/img/seafile-logo.png')
+        logo_file = os.path.join(os.getcwd(), 'media/img/neodrive-logo.png')
 
         with open(logo_file, 'rb') as f:
             resp = self.client.post(logo_url, {'favicon': f})
@@ -49,7 +49,7 @@ class AdminFaviconTest(BaseTestCase):
         # update user avatar
         logo_url = reverse('api-v2.1-admin-favicon')
         logo_url = urljoin(BASE_URL, logo_url)
-        logo_file = os.path.join(os.getcwd(), 'media/img/seafile-logo.png')
+        logo_file = os.path.join(os.getcwd(), 'media/img/neodrive-logo.png')
 
         with open(logo_file, 'rb') as f:
             resp = self.client.post(logo_url, {'favicon': f})

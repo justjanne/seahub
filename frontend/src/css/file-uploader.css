@@ -77,7 +77,7 @@
 }
 
 .upload-progress .progress .progress-bar {
-  color: #e83;
+  color: #1b8599; /* FIXME */
 }
 
 .upload-progress .progress-text {

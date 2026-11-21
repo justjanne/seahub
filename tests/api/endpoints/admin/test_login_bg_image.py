@@ -31,7 +31,7 @@ class AdminLogoTest(BaseTestCase):
         # update user avatar
         image_url = reverse('api-v2.1-admin-login-background-image')
         image_url = urljoin(BASE_URL, image_url)
-        image_file = os.path.join(os.getcwd(), 'media/img/seafile-logo.png')
+        image_file = os.path.join(os.getcwd(), 'media/img/neodrive-logo.png')
 
         with open(image_file, 'rb') as f:
             resp = self.client.post(image_url, {'login_bg_image': f})
@@ -48,7 +48,7 @@ class AdminLogoTest(BaseTestCase):
         # update user avatar
         image_url = reverse('api-v2.1-admin-login-background-image')
         image_url = urljoin(BASE_URL, image_url)
-        image_file = os.path.join(os.getcwd(), 'media/img/seafile-logo.png')
+        image_file = os.path.join(os.getcwd(), 'media/img/neodrive-logo.png')
 
         with open(image_file, 'rb') as f:
             resp = self.client.post(image_url, {'login_bg_image': f})

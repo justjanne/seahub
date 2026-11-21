@@ -29,6 +29,6 @@
 
 .big-new-file-button:hover,
 .big-new-file-button:focus {
-  border-color: #eb9205;
+  border-color: #eb9205; /* FIXME */
   color: var(--bs-accent-color);
 }

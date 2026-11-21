@@ -14,9 +14,11 @@ $green:   #5eba00 !default;
 $teal:    #2bcbba !default;
 $cyan:    #17a2b8 !default;
 
+$white: #fff !default;
 $gray-600: #868e96 !default;
 
-$primary:   #ff9800 !default;
+//$primary:   #ff9800 !default;
+$primary:   #009cb4 !default;
 $secondary: #666 !default;
 $success:   $green !default;
 $info:      $azure !default;
@@ -25,7 +27,8 @@ $danger:    $red !default;
 $text-muted-dark: #6e7687 !default;
 $dark:      #343a40 !default;
 
-$accent-color: $orange !default;
+//$accent-color: $orange !default;
+$accent-color: #1b8599 !default;
 $body-color: #212529 !default;
 $body-secondary-bg: #f5f5f5 !default;
 $dropdown-item-hover-bg: #20a0ff !default;

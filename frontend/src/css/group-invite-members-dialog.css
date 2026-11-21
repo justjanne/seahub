@@ -37,8 +37,8 @@
 }
 
 .invite-link-item .delete-link-btn:hover {
-  background-color: #d98100;
-  border-color: #d98100;
+  background-color: #0a8ca4; /* FIXME */
+  border-color: #0a8ca4;
   box-shadow: none;
   color: #fff;
 }

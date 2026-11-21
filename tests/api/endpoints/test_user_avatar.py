@@ -13,7 +13,7 @@ class AvatarApiTest(ApiTestBase):
         # update user avatar
         avatar_url = reverse('api-v2.1-user-avatar')
         avatar_url = urljoin(BASE_URL, avatar_url)
-        avatar_file = os.path.join(os.getcwd(), 'media/img/seafile-logo.png')
+        avatar_file = os.path.join(os.getcwd(), 'media/img/neodrive-logo.png')
 
         random_avatar_size = 256
 
